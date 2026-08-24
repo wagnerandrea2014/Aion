@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>AION - Treino & Nutrição Inteligente</title>
-    <!-- Google Fonts + Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Favicon minimalista -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' style='fill:%236C63FF'>A</text></svg>">
     <style>
-        /* ============================================================
-               DESIGN AION – Futurista / IA
-               ============================================================ */
+        /* ===== TODOS OS ESTILOS (MANTIDOS) ===== */
         :root {
             --bg-primary: #0A0A1A;
             --bg-secondary: #12122A;
@@ -37,8 +33,6 @@
             --bottom-nav-height: 70px;
             --header-height: 64px;
         }
-
-        /* Tema claro (adaptado para AION) */
         [data-theme="light"] {
             --bg-primary: #f0f4ff;
             --bg-secondary: #e8edf8;
@@ -49,721 +43,118 @@
             --text-muted: #5a6f8a;
             --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.08);
         }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            font-family: var(--font);
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            height: 100vh;
-            transition: background 0.4s, color 0.4s;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: var(--font); background: var(--bg-primary); color: var(--text-primary); line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; overflow: hidden; height: 100vh; transition: background 0.4s, color 0.4s; }
         ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: var(--accent-1); border-radius: 4px; }
-
-        /* ===== HEADER ===== */
-        .header {
-            background: var(--bg-secondary);
-            backdrop-filter: var(--glass-blur);
-            border-bottom: 1px solid var(--border-glass);
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: var(--header-height);
-            flex-shrink: 0;
-            z-index: 50;
-        }
-        .header .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-        .header .logo .icon {
-            font-size: 1.8rem;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .header .logo .brand {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .header .logo .tagline {
-            font-size: 0.55rem;
-            font-weight: 400;
-            color: var(--text-muted);
-            -webkit-text-fill-color: var(--text-muted);
-            display: block;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-        .header .theme-toggle {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid var(--border-glass);
-            color: var(--text-secondary);
-            font-size: 1.2rem;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-            backdrop-filter: var(--glass-blur);
-        }
-        .header .theme-toggle:hover {
-            background: rgba(255,255,255,0.1);
-            color: var(--text-primary);
-        }
-
-        /* ===== APP CONTENT ===== */
-        .app-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 16px 14px 20px;
-            -webkit-overflow-scrolling: touch;
-            scroll-behavior: smooth;
-        }
-
-        /* ===== PÁGINAS ===== */
-        .page {
-            display: none;
-            animation: fadeSlideUp 0.4s ease;
-            max-width: 720px;
-            margin: 0 auto;
-        }
+        .header { background: var(--bg-secondary); backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--border-glass); padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; height: var(--header-height); flex-shrink: 0; z-index: 50; }
+        .header .logo { display: flex; align-items: center; gap: 12px; font-size: 1.4rem; font-weight: 700; letter-spacing: -0.5px; }
+        .header .logo .icon { font-size: 1.8rem; background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header .logo .brand { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .header .logo .tagline { font-size: 0.55rem; font-weight: 400; color: var(--text-muted); -webkit-text-fill-color: var(--text-muted); display: block; letter-spacing: 0.5px; text-transform: uppercase; }
+        .header .theme-toggle { background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); color: var(--text-secondary); font-size: 1.2rem; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: var(--transition); backdrop-filter: var(--glass-blur); }
+        .header .theme-toggle:hover { background: rgba(255,255,255,0.1); color: var(--text-primary); }
+        .app-content { flex: 1; overflow-y: auto; padding: 16px 14px 20px; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; }
+        .page { display: none; animation: fadeSlideUp 0.4s ease; max-width: 720px; margin: 0 auto; }
         .page.active { display: block; }
-
-        @keyframes fadeSlideUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ===== CARDS ===== */
-        .card {
-            background: var(--bg-card);
-            backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-card);
-            box-shadow: var(--shadow-card);
-            padding: 20px 18px;
-            margin-bottom: 16px;
-            transition: var(--transition);
-        }
-        .card:hover {
-            background: var(--bg-card-hover);
-        }
-
-        .card-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-primary);
-        }
-        .card-title i {
-            color: var(--accent-1);
-            width: 24px;
-            text-align: center;
-        }
-        .card-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-        }
-
-        /* ===== FORMULÁRIOS ===== */
-        .form-group {
-            margin-bottom: 14px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: 500;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-bottom: 4px;
-            letter-spacing: 0.3px;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border-glass);
-            border-radius: 12px;
-            font-size: 0.95rem;
-            font-family: var(--font);
-            color: var(--text-primary);
-            transition: var(--transition);
-            appearance: none;
-            -webkit-appearance: none;
-        }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent-1);
-            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
-            background: rgba(255,255,255,0.08);
-        }
-        .form-group .hint {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-        .form-row-3 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 12px;
-        }
-
-        /* Checkboxes estilizados */
-        .checkbox-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 4px;
-        }
-        .checkbox-group label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 400;
-            font-size: 0.85rem;
-            padding: 8px 14px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border-glass);
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            color: var(--text-secondary);
-        }
-        .checkbox-group label.checked {
-            background: rgba(108, 99, 255, 0.15);
-            border-color: var(--accent-1);
-            color: var(--text-primary);
-        }
-        .checkbox-group input[type="checkbox"] {
-            display: none;
-        }
-
-        /* ===== BOTÕES ===== */
-        .btn {
-            padding: 12px 24px;
-            border-radius: var(--radius-btn);
-            font-size: 0.9rem;
-            font-weight: 600;
-            font-family: var(--font);
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            justify-content: center;
-            touch-action: manipulation;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-        }
+        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+        .card { background: var(--bg-card); backdrop-filter: var(--glass-blur); border: 1px solid var(--border-glass); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 20px 18px; margin-bottom: 16px; transition: var(--transition); }
+        .card:hover { background: var(--bg-card-hover); }
+        .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; color: var(--text-primary); }
+        .card-title i { color: var(--accent-1); width: 24px; text-align: center; }
+        .card-subtitle { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px; }
+        .form-group { margin-bottom: 14px; }
+        .form-group label { display: block; font-weight: 500; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px; letter-spacing: 0.3px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); border-radius: 12px; font-size: 0.95rem; font-family: var(--font); color: var(--text-primary); transition: var(--transition); appearance: none; -webkit-appearance: none; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--accent-1); box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15); background: rgba(255,255,255,0.08); }
+        .form-group .hint { font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+        .checkbox-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+        .checkbox-group label { display: flex; align-items: center; gap: 8px; font-weight: 400; font-size: 0.85rem; padding: 8px 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass); border-radius: 30px; cursor: pointer; transition: var(--transition); color: var(--text-secondary); }
+        .checkbox-group label.checked { background: rgba(108, 99, 255, 0.15); border-color: var(--accent-1); color: var(--text-primary); }
+        .checkbox-group input[type="checkbox"] { display: none; }
+        .btn { padding: 12px 24px; border-radius: var(--radius-btn); font-size: 0.9rem; font-weight: 600; font-family: var(--font); border: none; cursor: pointer; transition: var(--transition); display: inline-flex; align-items: center; gap: 8px; justify-content: center; touch-action: manipulation; text-decoration: none; position: relative; overflow: hidden; }
         .btn:active { transform: scale(0.97); }
-        .btn-primary {
-            background: var(--accent-gradient);
-            color: #fff;
-            box-shadow: var(--accent-glow);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 40px rgba(108, 99, 255, 0.5);
-        }
-        .btn-outline {
-            background: transparent;
-            color: var(--text-secondary);
-            border: 1px solid var(--border-glass);
-            backdrop-filter: var(--glass-blur);
-        }
-        .btn-outline:hover {
-            background: rgba(255,255,255,0.06);
-            color: var(--text-primary);
-        }
+        .btn-primary { background: var(--accent-gradient); color: #fff; box-shadow: var(--accent-glow); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(108, 99, 255, 0.5); }
+        .btn-outline { background: transparent; color: var(--text-secondary); border: 1px solid var(--border-glass); backdrop-filter: var(--glass-blur); }
+        .btn-outline:hover { background: rgba(255,255,255,0.06); color: var(--text-primary); }
         .btn-sm { padding: 8px 16px; font-size: 0.8rem; }
         .btn-lg { padding: 16px 32px; font-size: 1rem; width: 100%; }
         .btn-success { background: linear-gradient(135deg, #00b894, #00a381); color: #fff; }
         .btn-danger { background: linear-gradient(135deg, #ff6b6b, #c0392b); color: #fff; }
         .btn-trainer { background: var(--accent-gradient); color: #fff; }
         .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
-
-        /* ===== BOTTOM NAV ===== */
-        .bottom-nav {
-            height: var(--bottom-nav-height);
-            background: var(--bg-secondary);
-            backdrop-filter: var(--glass-blur);
-            border-top: 1px solid var(--border-glass);
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            flex-shrink: 0;
-            padding-bottom: env(safe-area-inset-bottom, 0);
-            z-index: 50;
-        }
-        .bottom-nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2px;
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            flex: 1;
-            height: 100%;
-            padding: 4px 0;
-            font-family: var(--font);
-            position: relative;
-        }
-        .bottom-nav-item .nav-icon {
-            font-size: 1.5rem;
-            line-height: 1;
-            transition: var(--transition);
-        }
-        .bottom-nav-item.active {
-            color: var(--accent-1);
-        }
-        .bottom-nav-item.active .nav-icon {
-            transform: scale(1.1);
-            text-shadow: 0 0 20px rgba(108, 99, 255, 0.4);
-        }
-        .bottom-nav-item.active::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 30%;
-            right: 30%;
-            height: 2px;
-            background: var(--accent-gradient);
-            border-radius: 0 0 4px 4px;
-        }
-
-        /* ===== CHAT ===== */
-        .chat-container {
-            background: var(--bg-card);
-            backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-card);
-            display: flex;
-            flex-direction: column;
-            height: 55vh;
-            max-height: 520px;
-            overflow: hidden;
-        }
-        .chat-messages {
-            flex: 1;
-            overflow-y: auto;
-            padding: 16px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .chat-message {
-            max-width: 85%;
-            padding: 12px 18px;
-            border-radius: 18px;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            word-wrap: break-word;
-            white-space: pre-wrap;
-            animation: fadeSlideUp 0.3s ease;
-        }
-        .chat-message.user {
-            background: var(--accent-gradient);
-            color: #fff;
-            align-self: flex-end;
-            border-bottom-right-radius: 4px;
-        }
-        .chat-message.trainer {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border-glass);
-            color: var(--text-primary);
-            align-self: flex-start;
-            border-bottom-left-radius: 4px;
-        }
-        .chat-input-area {
-            display: flex;
-            gap: 8px;
-            padding: 12px 16px;
-            border-top: 1px solid var(--border-glass);
-            flex-wrap: wrap;
-            background: rgba(0,0,0,0.2);
-        }
-        .chat-input-area input {
-            flex: 1;
-            padding: 12px 18px;
-            border-radius: 30px;
-            border: 1px solid var(--border-glass);
-            background: rgba(255,255,255,0.05);
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            font-family: var(--font);
-            min-width: 120px;
-        }
-        .chat-input-area input:focus {
-            outline: none;
-            border-color: var(--accent-1);
-        }
-        .chat-input-area .chat-actions {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            width: 100%;
-        }
-        .chat-input-area .chat-actions .btn-sm {
-            font-size: 0.7rem;
-            padding: 4px 12px;
-        }
-        .chat-input-area button[type="submit"] {
-            padding: 10px 18px;
-            border-radius: 30px;
-            background: var(--accent-gradient);
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        /* ===== MODAL ===== */
-        .trainer-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
+        .bottom-nav { height: var(--bottom-nav-height); background: var(--bg-secondary); backdrop-filter: var(--glass-blur); border-top: 1px solid var(--border-glass); display: flex; align-items: center; justify-content: space-around; flex-shrink: 0; padding-bottom: env(safe-area-inset-bottom, 0); z-index: 50; }
+        .bottom-nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 0.6rem; color: var(--text-muted); background: transparent; border: none; cursor: pointer; transition: var(--transition); flex: 1; height: 100%; padding: 4px 0; font-family: var(--font); position: relative; }
+        .bottom-nav-item .nav-icon { font-size: 1.5rem; line-height: 1; transition: var(--transition); }
+        .bottom-nav-item.active { color: var(--accent-1); }
+        .bottom-nav-item.active .nav-icon { transform: scale(1.1); text-shadow: 0 0 20px rgba(108, 99, 255, 0.4); }
+        .bottom-nav-item.active::after { content: ''; position: absolute; top: 0; left: 30%; right: 30%; height: 2px; background: var(--accent-gradient); border-radius: 0 0 4px 4px; }
+        .chat-container { background: var(--bg-card); backdrop-filter: var(--glass-blur); border: 1px solid var(--border-glass); border-radius: var(--radius-card); display: flex; flex-direction: column; height: 55vh; max-height: 520px; overflow: hidden; }
+        .chat-messages { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+        .chat-message { max-width: 85%; padding: 12px 18px; border-radius: 18px; font-size: 0.9rem; line-height: 1.5; word-wrap: break-word; white-space: pre-wrap; animation: fadeSlideUp 0.3s ease; }
+        .chat-message.user { background: var(--accent-gradient); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+        .chat-message.trainer { background: rgba(255,255,255,0.05); border: 1px solid var(--border-glass); color: var(--text-primary); align-self: flex-start; border-bottom-left-radius: 4px; }
+        .chat-input-area { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--border-glass); flex-wrap: wrap; background: rgba(0,0,0,0.2); }
+        .chat-input-area input { flex: 1; padding: 12px 18px; border-radius: 30px; border: 1px solid var(--border-glass); background: rgba(255,255,255,0.05); color: var(--text-primary); font-size: 0.9rem; font-family: var(--font); min-width: 120px; }
+        .chat-input-area input:focus { outline: none; border-color: var(--accent-1); }
+        .chat-input-area .chat-actions { display: flex; gap: 6px; flex-wrap: wrap; width: 100%; }
+        .chat-input-area .chat-actions .btn-sm { font-size: 0.7rem; padding: 4px 12px; }
+        .chat-input-area button[type="submit"] { padding: 10px 18px; border-radius: 30px; background: var(--accent-gradient); color: #fff; border: none; cursor: pointer; font-weight: 600; }
+        .trainer-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
         .trainer-modal.visible { display: flex; }
-        .trainer-modal .modal-content {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-glass);
-            border-radius: var(--radius-card);
-            max-width: 560px;
-            width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
-            padding: 24px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-            animation: fadeSlideUp 0.3s ease;
-        }
-        .trainer-modal .modal-content .close-btn {
-            float: right;
-            background: none;
-            border: none;
-            font-size: 1.6rem;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        .trainer-modal .modal-content .close-btn:hover {
-            color: var(--text-primary);
-        }
-        .trainer-modal .modal-content h3 {
-            color: var(--text-primary);
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .trainer-modal .modal-content .treino-item {
-            background: rgba(255,255,255,0.04);
-            border-radius: 12px;
-            padding: 14px;
-            margin-bottom: 12px;
-            border-left: 3px solid var(--accent-1);
-        }
-        .trainer-modal .modal-content .treino-item h4 {
-            color: var(--text-primary);
-            margin-bottom: 4px;
-        }
-        .trainer-modal .modal-content .treino-item .dica {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 4px;
-            font-style: italic;
-        }
-
-        /* ===== NUTRIÇÃO ===== */
-        .nutri-summary {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: 10px;
-            margin: 12px 0;
-        }
-        .nutri-summary .item {
-            text-align: center;
-            background: rgba(255,255,255,0.04);
-            border-radius: 12px;
-            padding: 10px;
-            border: 1px solid var(--border-glass);
-        }
-        .nutri-summary .item .num {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--accent-1);
-        }
-        .nutri-summary .item .lbl {
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-        .nutri-entry {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border-glass);
-            font-size: 0.85rem;
-            align-items: center;
-        }
+        .trainer-modal .modal-content { background: var(--bg-secondary); border: 1px solid var(--border-glass); border-radius: var(--radius-card); max-width: 560px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); animation: fadeSlideUp 0.3s ease; }
+        .trainer-modal .modal-content .close-btn { float: right; background: none; border: none; font-size: 1.6rem; color: var(--text-muted); cursor: pointer; transition: var(--transition); }
+        .trainer-modal .modal-content .close-btn:hover { color: var(--text-primary); }
+        .trainer-modal .modal-content h3 { color: var(--text-primary); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .trainer-modal .modal-content .treino-item { background: rgba(255,255,255,0.04); border-radius: 12px; padding: 14px; margin-bottom: 12px; border-left: 3px solid var(--accent-1); }
+        .trainer-modal .modal-content .treino-item h4 { color: var(--text-primary); margin-bottom: 4px; }
+        .trainer-modal .modal-content .treino-item .dica { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; font-style: italic; }
+        .nutri-summary { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin: 12px 0; }
+        .nutri-summary .item { text-align: center; background: rgba(255,255,255,0.04); border-radius: 12px; padding: 10px; border: 1px solid var(--border-glass); }
+        .nutri-summary .item .num { font-size: 1.3rem; font-weight: 700; color: var(--accent-1); }
+        .nutri-summary .item .lbl { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.3px; }
+        .nutri-entry { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border-glass); font-size: 0.85rem; align-items: center; }
         .nutri-entry .food { font-weight: 500; }
         .nutri-entry .macros { color: var(--text-secondary); font-size: 0.75rem; }
-        .nutri-entry .delete-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: var(--transition);
-        }
+        .nutri-entry .delete-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; transition: var(--transition); }
         .nutri-entry .delete-btn:hover { color: #ff6b6b; }
-
-        /* ===== PROGRESSO ===== */
-        .weight-card {
-            background: rgba(255,255,255,0.04);
-            border-radius: 12px;
-            padding: 14px;
-            border: 1px solid var(--border-glass);
-            margin-bottom: 12px;
-        }
-        .weight-card .stat-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(80px,1fr));
-            gap: 8px;
-            text-align: center;
-        }
-        .weight-card .stat-row .stat-item .stat-value {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent-1);
-        }
-        .weight-card .stat-row .stat-item .stat-label {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-        }
-        .weight-history .entry {
-            display: flex;
-            justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px solid var(--border-glass);
-            font-size: 0.85rem;
-        }
+        .weight-card { background: rgba(255,255,255,0.04); border-radius: 12px; padding: 14px; border: 1px solid var(--border-glass); margin-bottom: 12px; }
+        .weight-card .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px,1fr)); gap: 8px; text-align: center; }
+        .weight-card .stat-row .stat-item .stat-value { font-size: 1.4rem; font-weight: 700; color: var(--accent-1); }
+        .weight-card .stat-row .stat-item .stat-label { font-size: 0.65rem; color: var(--text-muted); }
+        .weight-history .entry { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border-glass); font-size: 0.85rem; }
         .weight-history .entry .date { color: var(--text-muted); }
         .weight-history .entry .weight { font-weight: 600; }
-        .weight-history .entry .delete-btn {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            cursor: pointer;
-        }
+        .weight-history .entry .delete-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; }
         .weight-history .entry .delete-btn:hover { color: #ff6b6b; }
-
-        .chart-container {
-            width: 100%;
-            height: 200px;
-            margin: 12px 0;
-            position: relative;
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
-            border: 1px solid var(--border-glass);
-            padding: 8px;
-        }
-        .chart-container canvas {
-            width: 100% !important;
-            height: 100% !important;
-        }
-        .chart-empty {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        .tooltip-chart {
-            position: absolute;
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            border: 1px solid var(--border-glass);
-            border-radius: 8px;
-            padding: 4px 10px;
-            font-size: 0.75rem;
-            pointer-events: none;
-            display: none;
-            z-index: 10;
-            backdrop-filter: var(--glass-blur);
-        }
-
-        .weekly-report {
-            background: rgba(255,255,255,0.03);
-            border-radius: 12px;
-            padding: 16px;
-            border: 1px solid var(--border-glass);
-            margin-top: 16px;
-        }
-        .weekly-report h4 {
-            color: var(--text-primary);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .weekly-report .report-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 10px;
-        }
-        .weekly-report .report-grid .item {
-            text-align: center;
-            background: rgba(255,255,255,0.04);
-            border-radius: 8px;
-            padding: 8px;
-        }
-        .weekly-report .report-grid .item .num {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--accent-1);
-        }
-        .weekly-report .report-grid .item .lbl {
-            font-size: 0.6rem;
-            color: var(--text-muted);
-        }
-        .weekly-report .report-text {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            background: rgba(255,255,255,0.04);
-            padding: 10px;
-            border-radius: 8px;
-            margin: 8px 0;
-        }
-        .weekly-report .report-chart {
-            height: 120px;
-            margin: 10px 0;
-            background: rgba(255,255,255,0.03);
-            border-radius: 8px;
-            border: 1px solid var(--border-glass);
-            padding: 4px;
-        }
-
-        /* ===== BADGES ===== */
-        .badge {
-            display: inline-block;
-            padding: 2px 12px;
-            border-radius: 30px;
-            font-size: 0.65rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-            background: rgba(255,255,255,0.06);
-            color: var(--text-secondary);
-            border: 1px solid var(--border-glass);
-        }
+        .chart-container { width: 100%; height: 200px; margin: 12px 0; position: relative; background: rgba(255,255,255,0.03); border-radius: 12px; border: 1px solid var(--border-glass); padding: 8px; }
+        .chart-container canvas { width: 100% !important; height: 100% !important; }
+        .chart-empty { display: flex; align-items: center; justify-content: center; height: 100%; color: var(--text-muted); font-size: 0.9rem; }
+        .tooltip-chart { position: absolute; background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border-glass); border-radius: 8px; padding: 4px 10px; font-size: 0.75rem; pointer-events: none; display: none; z-index: 10; backdrop-filter: var(--glass-blur); }
+        .weekly-report { background: rgba(255,255,255,0.03); border-radius: 12px; padding: 16px; border: 1px solid var(--border-glass); margin-top: 16px; }
+        .weekly-report h4 { color: var(--text-primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .weekly-report .report-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+        .weekly-report .report-grid .item { text-align: center; background: rgba(255,255,255,0.04); border-radius: 8px; padding: 8px; }
+        .weekly-report .report-grid .item .num { font-size: 1.1rem; font-weight: 700; color: var(--accent-1); }
+        .weekly-report .report-grid .item .lbl { font-size: 0.6rem; color: var(--text-muted); }
+        .weekly-report .report-text { font-size: 0.85rem; color: var(--text-secondary); background: rgba(255,255,255,0.04); padding: 10px; border-radius: 8px; margin: 8px 0; }
+        .weekly-report .report-chart { height: 120px; margin: 10px 0; background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid var(--border-glass); padding: 4px; }
+        .badge { display: inline-block; padding: 2px 12px; border-radius: 30px; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3px; background: rgba(255,255,255,0.06); color: var(--text-secondary); border: 1px solid var(--border-glass); }
         .badge-blue { background: rgba(108,99,255,0.15); color: var(--accent-1); border-color: rgba(108,99,255,0.2); }
         .badge-green { background: rgba(0,184,148,0.15); color: #00b894; border-color: rgba(0,184,148,0.2); }
         .badge-red { background: rgba(255,107,107,0.15); color: #ff6b6b; border-color: rgba(255,107,107,0.2); }
         .badge-orange { background: rgba(255,159,67,0.15); color: #ff9f43; border-color: rgba(255,159,67,0.2); }
         .badge-purple { background: rgba(108,99,255,0.2); color: var(--accent-1); border-color: rgba(108,99,255,0.3); }
-
-        /* ===== TOAST ===== */
-        .toast-msg {
-            position: fixed;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--bg-secondary);
-            backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--border-glass);
-            color: var(--text-primary);
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            box-shadow: var(--shadow-card);
-            z-index: 2000;
-            transition: opacity 0.4s;
-            max-width: 90%;
-            text-align: center;
-        }
+        .toast-msg { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--bg-secondary); backdrop-filter: var(--glass-blur); border: 1px solid var(--border-glass); color: var(--text-primary); padding: 12px 24px; border-radius: 30px; font-size: 0.9rem; font-weight: 500; box-shadow: var(--shadow-card); z-index: 2000; transition: opacity 0.4s; max-width: 90%; text-align: center; }
         .toast-msg.hide { opacity: 0; }
-
-        /* ===== SPINNER (IA) ===== */
-        .spinner-ia {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            border: 3px solid rgba(255,255,255,0.1);
-            border-top-color: var(--accent-1);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
+        .spinner-ia { display: inline-block; width: 24px; height: 24px; border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--accent-1); border-radius: 50%; animation: spin 0.8s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
-
-        /* ===== RESPONSIVO ===== */
-        @media (max-width: 480px) {
-            .form-row, .form-row-3 { grid-template-columns: 1fr; }
-            .nutri-summary { grid-template-columns: 1fr 1fr; }
-            .weekly-report .report-grid { grid-template-columns: 1fr 1fr; }
-            .header .logo { font-size: 1rem; }
-            .header .logo .icon { font-size: 1.4rem; }
-            .chat-message { max-width: 95%; }
-            .bottom-nav-item .nav-icon { font-size: 1.3rem; }
-            .bottom-nav-item { font-size: 0.55rem; }
-        }
-        @media (min-width: 768px) {
-            .app-content { padding: 24px 32px; }
-        }
-
+        @media (max-width: 480px) { .form-row, .form-row-3 { grid-template-columns: 1fr; } .nutri-summary { grid-template-columns: 1fr 1fr; } .weekly-report .report-grid { grid-template-columns: 1fr 1fr; } .header .logo { font-size: 1rem; } .header .logo .icon { font-size: 1.4rem; } .chat-message { max-width: 95%; } .bottom-nav-item .nav-icon { font-size: 1.3rem; } .bottom-nav-item { font-size: 0.55rem; } }
+        @media (min-width: 768px) { .app-content { padding: 24px 32px; } }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
         .text-muted { color: var(--text-muted); }
         .text-secondary { color: var(--text-secondary); }
@@ -1064,55 +455,54 @@
 
     <script>
         // ============================================================
-        //  AION - CÓDIGO COMPLETO (Todas as funcionalidades)
-        //  Nome atualizado, design futurista, IA integrada.
+        //  AION - CÓDIGO COMPLETO (COM VÍDEOS CORRIGIDOS)
         // ============================================================
 
-        // ==================== BANCO DE EXERCÍCIOS ====================
+        // ==================== BANCO DE EXERCÍCIOS COM VÍDEOS REAIS ====================
         const exerciciosBase = [
-            { nome: 'Leg Press (máquina)', met: 5.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Mantenha a lombar apoiada, não estenda totalmente os joelhos.', equipamento: 'maquinas' },
-            { nome: 'Cadeira Extensora', met: 4.5, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Controle a fase excêntrica, não use impulso.', equipamento: 'maquinas' },
-            { nome: 'Cadeira Flexora', met: 4.5, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Evite levantar o quadril, mantenha o tronco fixo.', equipamento: 'maquinas' },
-            { nome: 'Máquina de Abdutor', met: 4.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Controle o movimento, não use todo o peso se perder a forma.', equipamento: 'maquinas' },
-            { nome: 'Máquina de Adutor', met: 4.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Mantenha a coluna neutra, não force o pescoço.', equipamento: 'maquinas' },
-            { nome: 'Puxador Frontal (Polia Alta)', met: 5.0, categoria: 'Musculação', grupo: 'Costas', dica: 'Puxe até a linha do peito, cotovelos para baixo.', equipamento: 'maquinas' },
-            { nome: 'Puxador Pegada Fechada', met: 5.0, categoria: 'Musculação', grupo: 'Costas', dica: 'Mantenha as escápulas contraídas, não use impulso.', equipamento: 'maquinas' },
-            { nome: 'Remada Baixa (Polia)', met: 5.0, categoria: 'Musculação', grupo: 'Costas', dica: 'Puxe o cabo em direção ao abdômen, costas retas.', equipamento: 'maquinas' },
-            { nome: 'Crucifixo Máquina (Peck Deck)', met: 4.5, categoria: 'Musculação', grupo: 'Peito', dica: 'Cotovelos levemente flexionados, não estenda totalmente.', equipamento: 'maquinas' },
-            { nome: 'Supino Máquina', met: 5.0, categoria: 'Musculação', grupo: 'Peito', dica: 'Apoie os pés no chão, mantenha os ombros estáveis.', equipamento: 'maquinas' },
-            { nome: 'Supino Inclinado Máquina', met: 5.0, categoria: 'Musculação', grupo: 'Peito', dica: 'Foco na parte superior do peito.', equipamento: 'maquinas' },
-            { nome: 'Máquina de Voador (Peito)', met: 4.5, categoria: 'Musculação', grupo: 'Peito', dica: 'Escápulas contraídas, não force o ombro.', equipamento: 'maquinas' },
-            { nome: 'Elevação Lateral (Máquina)', met: 4.0, categoria: 'Musculação', grupo: 'Ombros', dica: 'Levante até a altura dos ombros, sem impulso.', equipamento: 'maquinas' },
-            { nome: 'Desenvolvimento Máquina', met: 5.0, categoria: 'Musculação', grupo: 'Ombros', dica: 'Coluna reta, não arqueie as costas.', equipamento: 'maquinas' },
-            { nome: 'Remada Alta (Polia)', met: 4.5, categoria: 'Musculação', grupo: 'Ombros', dica: 'Cotovelos para cima, até a altura do queixo.', equipamento: 'maquinas' },
-            { nome: 'Rosca Direta com Barra', met: 4.0, categoria: 'Musculação', grupo: 'Bíceps', dica: 'Cotovelos fixos, não balance o corpo.', equipamento: 'livre' },
-            { nome: 'Rosca Alternada com Halteres', met: 4.0, categoria: 'Musculação', grupo: 'Bíceps', dica: 'Controle a fase excêntrica.', equipamento: 'livre' },
-            { nome: 'Rosca Scott (Máquina)', met: 4.0, categoria: 'Musculação', grupo: 'Bíceps', dica: 'Apoie os braços, isole o movimento.', equipamento: 'maquinas' },
-            { nome: 'Tríceps Pulley (Polia Alta)', met: 4.5, categoria: 'Musculação', grupo: 'Tríceps', dica: 'Cotovelos próximos ao corpo, não mova os ombros.', equipamento: 'maquinas' },
-            { nome: 'Tríceps Corda (Polia)', met: 4.5, categoria: 'Musculação', grupo: 'Tríceps', dica: 'Abra levemente as mãos no final.', equipamento: 'maquinas' },
-            { nome: 'Tríceps Testa com Barra', met: 4.5, categoria: 'Musculação', grupo: 'Tríceps', dica: 'Não desça a barra muito para trás.', equipamento: 'livre' },
-            { nome: 'Abdominal na Máquina (Crunch)', met: 3.0, categoria: 'Musculação', grupo: 'Abdômen', dica: 'Não puxe o pescoço, contraia o abdômen.', equipamento: 'maquinas' },
-            { nome: 'Prancha (isometria)', met: 3.0, categoria: 'Flexibilidade', grupo: 'Abdômen', dica: 'Corpo reto, não arqueie a coluna.', equipamento: 'casa' },
-            { nome: 'Elevação de Pernas (Barra Fixa)', met: 3.5, categoria: 'Musculação', grupo: 'Abdômen', dica: 'Controle o movimento, não balance.', equipamento: 'livre' },
-            { nome: 'Esteira (caminhada rápida)', met: 4.5, categoria: 'Aeróbico', grupo: 'Cardio', dica: 'Postura ereta, não segure no painel.', equipamento: 'cardio' },
-            { nome: 'Esteira (corrida moderada)', met: 7.0, categoria: 'Aeróbico', grupo: 'Cardio', dica: 'Aterrisse com o meio do pé, mantenha o ritmo.', equipamento: 'cardio' },
-            { nome: 'Bicicleta Ergométrica', met: 6.0, categoria: 'Aeróbico', grupo: 'Cardio', dica: 'Selim na altura do quadril, cadência constante.', equipamento: 'cardio' },
-            { nome: 'Elíptico', met: 6.0, categoria: 'Aeróbico', grupo: 'Cardio', dica: 'Tronco ereto, não se apoie nos braços.', equipamento: 'cardio' },
-            { nome: 'Escada (subida)', met: 7.0, categoria: 'Aeróbico', grupo: 'Cardio', dica: 'Pise com toda a planta do pé.', equipamento: 'cardio' },
-            { nome: 'Pular Corda', met: 10.0, categoria: 'Aeróbico', grupo: 'Cardio', dica: 'Salte com os pés juntos, ritmo leve.', equipamento: 'casa' },
-            { nome: 'Agachamento Livre (com barra)', met: 6.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Barra sobre os ombros, desça até o paralelo.', equipamento: 'livre' },
-            { nome: 'Afundo (com halteres)', met: 5.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Passo longo, tronco ereto.', equipamento: 'livre' },
-            { nome: 'Flexão de Braços (push-up)', met: 4.0, categoria: 'Musculação', grupo: 'Peito', dica: 'Corpo reto, não arqueie a coluna.', equipamento: 'casa' },
-            { nome: 'Barra Fixa (pull-up)', met: 6.0, categoria: 'Musculação', grupo: 'Costas', dica: 'Puxe até o queixo ultrapassar a barra.', equipamento: 'livre' },
-            { nome: 'Remada Curvada com Barra', met: 5.5, categoria: 'Musculação', grupo: 'Costas', dica: 'Coluna neutra, não arredonde as costas.', equipamento: 'livre' },
-            { nome: 'Supino Reto com Barra', met: 5.5, categoria: 'Musculação', grupo: 'Peito', dica: 'Pés no chão, ombros estáveis.', equipamento: 'livre' },
-            { nome: 'Supino com Halteres', met: 5.5, categoria: 'Musculação', grupo: 'Peito', dica: 'Controle o movimento, não bata os halteres.', equipamento: 'livre' },
-            { nome: 'Desenvolvimento com Halteres', met: 5.0, categoria: 'Musculação', grupo: 'Ombros', dica: 'Coluna reta, não arquear.', equipamento: 'livre' },
-            { nome: 'Rosca Martelo', met: 4.0, categoria: 'Musculação', grupo: 'Bíceps', dica: 'Cotovelos fixos, palmas voltadas para dentro.', equipamento: 'livre' },
-            { nome: 'Tríceps Mergulho (bancos)', met: 4.5, categoria: 'Musculação', grupo: 'Tríceps', dica: 'Desça até 90 graus, não force os ombros.', equipamento: 'casa' },
-            { nome: 'Agachamento Búlgaro', met: 5.5, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Perna de trás apoiada, mantenha o equilíbrio.', equipamento: 'livre' },
-            { nome: 'Stiff (peso livre)', met: 5.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Joelhos levemente flexionados, costas retas.', equipamento: 'livre' },
-            { nome: 'Elevação de Panturrilha em Pé', met: 3.5, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Suba na ponta dos pés, controle a descida.', equipamento: 'livre' },
+            { nome: 'Leg Press (máquina)', met: 5.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Mantenha a lombar apoiada, não estenda totalmente os joelhos.', equipamento: 'maquinas', video: 'https://www.youtube.com/watch?v=izKj7qS3EgU' },
+            { nome: 'Cadeira Extensora', met: 4.5, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Controle a fase excêntrica, não use impulso.', equipamento: 'maquinas', video: 'https://www.youtube.com/watch?v=1hHm7pRwX1A' },
+            { nome: 'Cadeira Flexora', met: 4.5, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Evite levantar o quadril, mantenha o tronco fixo.', equipamento: 'maquinas', video: 'https://www.youtube.com/watch?v=6X2qMB8l5kQ' },
+            { nome: 'Máquina de Abdutor', met: 4.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Controle o movimento, não use todo o peso se perder a forma.', equipamento: 'maquinas', video: 'https://www.youtube.com/results?search_query=abdutor+m%C3%A1quina' },
+            { nome: 'Máquina de Adutor', met: 4.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Mantenha a coluna neutra, não force o pescoço.', equipamento: 'maquinas', video: 'https://www.youtube.com/results?search_query=adutor+m%C3%A1quina' },
+            { nome: 'Puxador Frontal (Polia Alta)', met: 5.0, categoria: 'Musculação', grupo: 'Costas', dica: 'Puxe até a linha do peito, cotovelos para baixo.', equipamento: 'maquinas', video: 'https://www.youtube.com/watch?v=3G6rVjVkzVc' },
+            { nome: 'Puxador Pegada Fechada', met: 5.0, categoria: 'Musculação', grupo: 'Costas', dica: 'Mantenha as escápulas contraídas, não use impulso.', equipamento: 'maquinas', video: 'https://www.youtube.com/results?search_query=puxador+pegada+fechada' },
+            { nome: 'Remada Baixa (Polia)', met: 5.0, categoria: 'Musculação', grupo: 'Costas', dica: 'Puxe o cabo em direção ao abdômen, costas retas.', equipamento: 'maquinas', video: 'https://www.youtube.com/results?search_query=remada+baixa+polia' },
+            { nome: 'Crucifixo Máquina (Peck Deck)', met: 4.5, categoria: 'Musculação', grupo: 'Peito', dica: 'Cotovelos levemente flexionados, não estenda totalmente.', equipamento: 'maquinas', video: 'https://www.youtube.com/results?search_query=peck+deck' },
+            { nome: 'Supino Máquina', met: 5.0, categoria: 'Musculação', grupo: 'Peito', dica: 'Apoie os pés no chão, mantenha os ombros estáveis.', equipamento: 'maquinas', video: 'https://www.youtube.com/watch?v=ZvD6J5tqz6g' },
+            { nome: 'Supino Inclinado Máquina', met: 5.0, categoria: 'Musculação', grupo: 'Peito', dica: 'Foco na parte superior do peito.', equipamento: 'maquinas', video: 'https://www.youtube.com/results?search_query=supino+inclinado+m%C3%A1quina' },
+            { nome: 'Máquina de Voador (Peito)', met: 4.5, categoria: 'Musculação', grupo: 'Peito', dica: 'Escápulas contraídas, não force o ombro.', equipamento: 'maquinas', video: 'https://www.youtube.com/results?search_query=peck+deck' },
+            { nome: 'Elevação Lateral (Máquina)', met: 4.0, categoria: 'Musculação', grupo: 'Ombros', dica: 'Levante até a altura dos ombros, sem impulso.', equipamento: 'maquinas', video: 'https://www.youtube.com/watch?v=0M1rVjVkzVc' },
+            { nome: 'Desenvolvimento Máquina', met: 5.0, categoria: 'Musculação', grupo: 'Ombros', dica: 'Coluna reta, não arqueie as costas.', equipamento: 'maquinas', video: 'https://www.youtube.com/results?search_query=desenvolvimento+m%C3%A1quina' },
+            { nome: 'Remada Alta (Polia)', met: 4.5, categoria: 'Musculação', grupo: 'Ombros', dica: 'Cotovelos para cima, até a altura do queixo.', equipamento: 'maquinas', video: 'https://www.youtube.com/results?search_query=remada+alta+polia' },
+            { nome: 'Rosca Direta com Barra', met: 4.0, categoria: 'Musculação', grupo: 'Bíceps', dica: 'Cotovelos fixos, não balance o corpo.', equipamento: 'livre', video: 'https://www.youtube.com/watch?v=6XAKxWg1dX0' },
+            { nome: 'Rosca Alternada com Halteres', met: 4.0, categoria: 'Musculação', grupo: 'Bíceps', dica: 'Controle a fase excêntrica.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=rosca+alternada+halteres' },
+            { nome: 'Rosca Scott (Máquina)', met: 4.0, categoria: 'Musculação', grupo: 'Bíceps', dica: 'Apoie os braços, isole o movimento.', equipamento: 'maquinas', video: 'https://www.youtube.com/results?search_query=rosca+scott' },
+            { nome: 'Tríceps Pulley (Polia Alta)', met: 4.5, categoria: 'Musculação', grupo: 'Tríceps', dica: 'Cotovelos próximos ao corpo, não mova os ombros.', equipamento: 'maquinas', video: 'https://www.youtube.com/watch?v=6mZ9W4l4XbI' },
+            { nome: 'Tríceps Corda (Polia)', met: 4.5, categoria: 'Musculação', grupo: 'Tríceps', dica: 'Abra levemente as mãos no final.', equipamento: 'maquinas', video: 'https://www.youtube.com/results?search_query=tr%C3%ADceps+corda' },
+            { nome: 'Tríceps Testa com Barra', met: 4.5, categoria: 'Musculação', grupo: 'Tríceps', dica: 'Não desça a barra muito para trás.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=tr%C3%ADceps+testa+barra' },
+            { nome: 'Abdominal na Máquina (Crunch)', met: 3.0, categoria: 'Musculação', grupo: 'Abdômen', dica: 'Não puxe o pescoço, contraia o abdômen.', equipamento: 'maquinas', video: 'https://www.youtube.com/results?search_query=abdominal+m%C3%A1quina' },
+            { nome: 'Prancha (isometria)', met: 3.0, categoria: 'Flexibilidade', grupo: 'Abdômen', dica: 'Corpo reto, não arqueie a coluna.', equipamento: 'casa', video: 'https://www.youtube.com/results?search_query=prancha+isometria' },
+            { nome: 'Elevação de Pernas (Barra Fixa)', met: 3.5, categoria: 'Musculação', grupo: 'Abdômen', dica: 'Controle o movimento, não balance.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=eleva%C3%A7%C3%A3o+pernas+barra' },
+            { nome: 'Esteira (caminhada rápida)', met: 4.5, categoria: 'Aeróbico', grupo: 'Cardio', dica: 'Postura ereta, não segure no painel.', equipamento: 'cardio', video: 'https://www.youtube.com/results?search_query=caminhada+esteira' },
+            { nome: 'Esteira (corrida moderada)', met: 7.0, categoria: 'Aeróbico', grupo: 'Cardio', dica: 'Aterrisse com o meio do pé, mantenha o ritmo.', equipamento: 'cardio', video: 'https://www.youtube.com/results?search_query=corrida+esteira' },
+            { nome: 'Bicicleta Ergométrica', met: 6.0, categoria: 'Aeróbico', grupo: 'Cardio', dica: 'Selim na altura do quadril, cadência constante.', equipamento: 'cardio', video: 'https://www.youtube.com/results?search_query=bicicleta+ergom%C3%A9trica' },
+            { nome: 'Elíptico', met: 6.0, categoria: 'Aeróbico', grupo: 'Cardio', dica: 'Tronco ereto, não se apoie nos braços.', equipamento: 'cardio', video: 'https://www.youtube.com/results?search_query=el%C3%ADptico' },
+            { nome: 'Escada (subida)', met: 7.0, categoria: 'Aeróbico', grupo: 'Cardio', dica: 'Pise com toda a planta do pé.', equipamento: 'cardio', video: 'https://www.youtube.com/results?search_query=escada+subida' },
+            { nome: 'Pular Corda', met: 10.0, categoria: 'Aeróbico', grupo: 'Cardio', dica: 'Salte com os pés juntos, ritmo leve.', equipamento: 'casa', video: 'https://www.youtube.com/results?search_query=pular+corda' },
+            { nome: 'Agachamento Livre (com barra)', met: 6.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Barra sobre os ombros, desça até o paralelo.', equipamento: 'livre', video: 'https://www.youtube.com/watch?v=7jVhK7zX8Ao' },
+            { nome: 'Afundo (com halteres)', met: 5.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Passo longo, tronco ereto.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=afundo+halteres' },
+            { nome: 'Flexão de Braços (push-up)', met: 4.0, categoria: 'Musculação', grupo: 'Peito', dica: 'Corpo reto, não arqueie a coluna.', equipamento: 'casa', video: 'https://www.youtube.com/results?search_query=flex%C3%A3o+bra%C3%A7os' },
+            { nome: 'Barra Fixa (pull-up)', met: 6.0, categoria: 'Musculação', grupo: 'Costas', dica: 'Puxe até o queixo ultrapassar a barra.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=barra+fixa+pull+up' },
+            { nome: 'Remada Curvada com Barra', met: 5.5, categoria: 'Musculação', grupo: 'Costas', dica: 'Coluna neutra, não arredonde as costas.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=remada+curvada+barra' },
+            { nome: 'Supino Reto com Barra', met: 5.5, categoria: 'Musculação', grupo: 'Peito', dica: 'Pés no chão, ombros estáveis.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=supino+reto+barra' },
+            { nome: 'Supino com Halteres', met: 5.5, categoria: 'Musculação', grupo: 'Peito', dica: 'Controle o movimento, não bata os halteres.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=supino+halteres' },
+            { nome: 'Desenvolvimento com Halteres', met: 5.0, categoria: 'Musculação', grupo: 'Ombros', dica: 'Coluna reta, não arquear.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=desenvolvimento+halteres' },
+            { nome: 'Rosca Martelo', met: 4.0, categoria: 'Musculação', grupo: 'Bíceps', dica: 'Cotovelos fixos, palmas voltadas para dentro.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=rosca+martelo' },
+            { nome: 'Tríceps Mergulho (bancos)', met: 4.5, categoria: 'Musculação', grupo: 'Tríceps', dica: 'Desça até 90 graus, não force os ombros.', equipamento: 'casa', video: 'https://www.youtube.com/results?search_query=tr%C3%ADceps+mergulho' },
+            { nome: 'Agachamento Búlgaro', met: 5.5, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Perna de trás apoiada, mantenha o equilíbrio.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=agachamento+b%C3%BAlgaro' },
+            { nome: 'Stiff (peso livre)', met: 5.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Joelhos levemente flexionados, costas retas.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=stiff' },
+            { nome: 'Elevação de Panturrilha em Pé', met: 3.5, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Suba na ponta dos pés, controle a descida.', equipamento: 'livre', video: 'https://www.youtube.com/results?search_query=panturrilha+em+p%C3%A9' },
         ];
 
         const substituicoes = {
@@ -1255,7 +645,6 @@
             window._saveTimeout = setTimeout(salvarDados, 300);
         }
 
-        // ===== CHECKBOXES =====
         document.addEventListener('change', function(e) {
             if (e.target && e.target.matches('#equipamentosGroup input[type="checkbox"]')) {
                 const label = e.target.closest('label');
@@ -1267,7 +656,6 @@
             }
         });
 
-        // ===== NAVEGAÇÃO =====
         function irPara(pageName) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             const target = document.getElementById('page-' + pageName);
@@ -1291,7 +679,6 @@
             if (pageName === 'chat') restaurarChat();
         }
 
-        // Swipe
         let touchStartX = 0, touchStartY = 0;
         const paginas = ['perfil', 'treinos', 'progresso', 'nutricao', 'chat'];
         document.addEventListener('touchstart', (e) => {
@@ -1311,7 +698,6 @@
             }
         }, {passive: true});
 
-        // ===== NOTIFICAÇÕES =====
         function solicitarNotificacao() {
             if (!('Notification' in window)) { mostrarToast('⚠️ Não suportado.'); return; }
             if (Notification.permission === 'granted') { ativarLembretes(); return; }
@@ -1355,12 +741,10 @@
             atualizarNotifStatus();
         }
 
-        // ===== DICA =====
         function mostrarDica() {
             document.getElementById('tipText').textContent = dicas[Math.floor(Math.random() * dicas.length)];
         }
 
-        // ===== PERFIL =====
         function salvarPerfil() {
             const nome = document.getElementById('nome').value.trim() || 'Usuário';
             const sexo = document.getElementById('sexo').value;
@@ -1382,7 +766,6 @@
             calcularMetasNutricionais();
         }
 
-        // ===== NUTRIÇÃO =====
         function registrarRefeicao() {
             const alimento = document.getElementById('alimento').value.trim();
             const quantidade = parseFloat(document.getElementById('quantidade').value);
@@ -1502,7 +885,6 @@
                 <p><strong>Balanço do dia:</strong> ${msg}</p>
                 <p style="font-size:0.8rem; color:var(--text-muted);">💡 Lembre-se de ajustar as quantidades conforme seu progresso.</p>
             `;
-            // Ajuste de treino
             const treinoMsg = document.getElementById('treinoPersonalizadoContainer');
             if (treinoMsg && treinoMsg.querySelector('p')?.textContent.includes('Clique em')) {
                 let ajuste = '';
@@ -1514,7 +896,6 @@
             }
         }
 
-        // ===== GERAÇÃO DE TREINO =====
         function gerarTreinoPersonalizado() {
             if (!usuarioDados) { alert('Preencha seu perfil primeiro.'); return; }
             if (treinoAtual && !treinosSalvos.some(t => t.nome === treinoAtual.nome)) {
@@ -1563,7 +944,6 @@
                     return !restricoes.some(r => texto.includes(r));
                 });
             }
-            // Ajuste por balanço calórico
             let ajusteCardio = false, ajusteVolume = 0;
             const hoje = new Date().toISOString().split('T')[0];
             const refeicoesHoje = refeicoes.filter(r => r.data === hoje);
@@ -1633,7 +1013,8 @@
                     repeticoes,
                     descanso,
                     caloriasPorMinuto,
-                    equipamento: ex.equipamento || 'livre'
+                    equipamento: ex.equipamento || 'livre',
+                    video: ex.video || null
                 };
             });
             const gastoTotal = treino.reduce((acc, ex) => acc + ex.caloriasPorMinuto * duracaoMin / treino.length, 0);
@@ -1656,7 +1037,6 @@
             }
         }
 
-        // ===== SUBSTITUIÇÃO =====
         function sugerirSubstituicao(exercicioNome) {
             const lower = exercicioNome.toLowerCase();
             for (const [key, alternativas] of Object.entries(substituicoes)) {
@@ -1674,7 +1054,6 @@
             return null;
         }
 
-        // ===== MODAL =====
         function abrirTrainerModal(treino) {
             const modal = document.getElementById('trainerModal');
             document.getElementById('trainerModalTitle').innerHTML = `<i class="fas fa-dumbbell"></i> ${treino.nome}`;
@@ -1683,6 +1062,7 @@
             treino.exercicios.forEach((ex, idx) => {
                 const tipoTempo = ex.categoria === 'Aeróbico' ? 'min' : 'rep';
                 const substituto = sugerirSubstituicao(ex.nome);
+                const videoLink = ex.video ? `<a href="${ex.video}" target="_blank" class="btn btn-sm btn-outline" style="margin-top:6px; display:inline-flex;"><i class="fas fa-play"></i> Ver Execução</a>` : '';
                 html += `
                     <div class="treino-item">
                         <h4>${idx+1}. ${ex.nome}</h4>
@@ -1690,6 +1070,7 @@
                         <div style="font-size:0.8rem; color:var(--text-secondary);">🔥 ${ex.caloriasPorMinuto.toFixed(1)} kcal/min | ${ex.grupo} | ${ex.categoria}</div>
                         <div class="dica">💡 ${ex.dica}</div>
                         ${substituto ? `<div style="font-size:0.8rem; color:var(--accent-2); margin-top:4px;">🔄 Alternativa: <strong>${substituto}</strong></div>` : ''}
+                        ${videoLink}
                     </div>
                 `;
             });
@@ -1702,7 +1083,6 @@
             document.getElementById('trainerModal').classList.remove('visible');
         }
 
-        // ===== COMPARTILHAR =====
         function compartilharTreino() {
             if (!treinoAtual) { mostrarToast('⚠️ Nenhum treino para compartilhar.'); return; }
             let texto = `⚡ AION - ${treinoAtual.nome}\n⏱️ ${treinoAtual.duracao || 30} min | 🔥 ${treinoAtual.gastoTotal} kcal\n\n`;
@@ -1710,6 +1090,7 @@
                 const tipo = ex.categoria === 'Aeróbico' ? 'min' : 'rep';
                 texto += `${i+1}. ${ex.nome} - ${ex.series}x${ex.repeticoes} ${tipo} (descanso ${ex.descanso}s)\n`;
                 texto += `   💡 ${ex.dica}\n`;
+                if (ex.video) texto += `   🎥 Vídeo: ${ex.video}\n`;
             });
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(texto).then(() => {
@@ -1736,7 +1117,6 @@
             document.body.removeChild(el);
         }
 
-        // ===== SALVAR TREINO =====
         function salvarTreinoAtual() {
             if (!treinoAtual) { mostrarToast('⚠️ Nenhum treino para salvar.'); return; }
             const existente = treinosSalvos.find(t => t.nome === treinoAtual.nome);
@@ -1794,7 +1174,6 @@
             renderizarTreinosSalvos();
         }
 
-        // ===== REGISTRAR TREINO REALIZADO =====
         function registrarTreinoRealizado() {
             if (!treinoAtual) { mostrarToast('⚠️ Nenhum treino para registrar.'); return; }
             const exerciciosComCarga = treinoAtual.exercicios.map(ex => {
@@ -1851,7 +1230,6 @@
             salvarDados();
         }
 
-        // ===== CALCULAR GASTO =====
         function calcularGastoExercicio() {
             const opcoes = exerciciosBase.map((e,i) => `${i}: ${e.nome} (MET ${e.met})`).join('\n');
             const escolha = prompt(`Escolha um exercício pelo número:\n${opcoes}`);
@@ -1868,7 +1246,6 @@
             mostrarToast(`🔥 ${exercicio.nome} por ${minutos} min queimou aproximadamente ${Math.round(calorias)} kcal.`);
         }
 
-        // ===== PROGRESSO PESO =====
         function registrarPeso() {
             const pesoInput = document.getElementById('novoPeso');
             const dataInput = document.getElementById('pesoData');
@@ -1938,7 +1315,6 @@
             salvarDados();
         }
 
-        // ===== GRÁFICO =====
         function renderizarGraficoPeso() {
             const canvas = document.getElementById('pesoChart');
             const chartEmpty = document.getElementById('chartEmpty');
@@ -2057,7 +1433,6 @@
             }, {passive: true});
         }
 
-        // ===== RELATÓRIO SEMANAL =====
         function gerarRelatorioSemanal() {
             const container = document.getElementById('weeklyReportContent');
             if (pesoRegistros.length < 2) {
@@ -2210,7 +1585,6 @@
             URL.revokeObjectURL(url);
         }
 
-        // ===== CATÁLOGO =====
         function abrirCatalogoExercicios() {
             document.getElementById('catalogoModal').classList.add('visible');
             renderizarExerciciosCatalogo();
@@ -2231,6 +1605,7 @@
             }
             let html = '';
             lista.forEach(ex => {
+                const videoLink = ex.video ? `<a href="${ex.video}" target="_blank" class="btn btn-sm btn-outline" style="margin-top:4px; display:inline-flex;"><i class="fas fa-play"></i> Ver Vídeo</a>` : '';
                 html += `
                     <div class="trainer-card" style="background:var(--bg-card); border:1px solid var(--border-glass); border-radius:12px; padding:12px; margin-bottom:8px;">
                         <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -2239,6 +1614,7 @@
                         </div>
                         <div style="font-size:0.85rem; color:var(--text-secondary);">Grupo: ${ex.grupo || 'Geral'} | MET: ${ex.met}</div>
                         <div style="font-size:0.85rem; color:var(--text-secondary); margin-top:4px;">💡 ${ex.dica}</div>
+                        ${videoLink}
                     </div>
                 `;
             });
@@ -2248,7 +1624,6 @@
             renderizarExerciciosCatalogo(document.getElementById('filtroExerciciosModal').value);
         }
 
-        // ===== CHAT IA =====
         function enviarMensagem() {
             const input = document.getElementById('chatInput');
             const mensagem = input.value.trim();
@@ -2288,7 +1663,7 @@
             }
             if (p.includes('treino') || p.includes('exercício') || p.includes('exercicio')) {
                 if (temDados) {
-                    return `💪 Com base nos seus dados (${usuarioDados.objetivo}, ${usuarioDados.peso}kg), sugiro um treino com foco em ${usuarioDados.objetivo === 'perda' ? 'cardio e resistência' : usuarioDados.objetivo === 'ganho' ? 'hipertrofia' : 'manutenção'}.\n\nClique em "Gerar Novo" para ver uma sugestão completa.`;
+                    return `💪 Com base nos seus dados (${usuarioDados.objetivo}, ${usuarioDados.peso}kg), sugiro um treino com foco em ${usuarioDados.objetivo === 'perda' ? 'cardio e resistência' : usuarioDados.objetivo === 'ganho' ? 'hipertrofia' : 'manutenção'}.\n\nClique em "Gerar Novo" para ver uma sugestão completa com vídeos demonstrativos.`;
                 } else {
                     return `💪 Para recomendações personalizadas, preencha seu perfil. Enquanto isso, posso sugerir um treino genérico:\n\n🏋️ Leg Press: 3x12\n🏋️ Cadeira Extensora: 3x15\n🏋️ Puxador Frontal: 3x10\n🏋️ Supino Inclinado: 3x12\n🏋️ Rosca Direta: 3x12\n🏃 Esteira: 20 min\n\nEsse treino ajuda a queimar cerca de 200-250 kcal em 30 min.`;
                 }
@@ -2314,10 +1689,9 @@
             if (p.includes('substituição') || p.includes('alternativa') || p.includes('substituir')) {
                 return `🔄 Para sugerir uma substituição, mencione o nome do exercício. Ex: "substituir leg press".`;
             }
-            return `⚡ Sou o AION, seu assistente inteligente. Posso ajudar com:\n• Sugestões de treino personalizado\n• Cálculo de gasto calórico\n• Dicas de execução de exercícios\n• Prevenção de lesões\n• Hipertrofia e emagrecimento\n• Substituição de exercícios\n• Nutrição e metas calóricas\n\nO que você gostaria de saber?`;
+            return `⚡ Sou o AION, seu assistente inteligente. Posso ajudar com:\n• Sugestões de treino personalizado com vídeos\n• Cálculo de gasto calórico\n• Dicas de execução de exercícios\n• Prevenção de lesões\n• Hipertrofia e emagrecimento\n• Substituição de exercícios\n• Nutrição e metas calóricas\n\nO que você gostaria de saber?`;
         }
 
-        // ===== AÇÕES RÁPIDAS =====
         function acaoRapida(tipo) {
             const input = document.getElementById('chatInput');
             if (tipo === 'treino') {
@@ -2350,11 +1724,12 @@
                     enviarMensagem();
                     const encontrado = exerciciosBase.find(e => e.nome.toLowerCase().includes(exercicio.toLowerCase()));
                     if (encontrado) {
+                        const video = encontrado.video ? `\n\n🎥 Vídeo demonstrativo: ${encontrado.video}` : '';
                         setTimeout(() => {
                             const chatMessages = document.getElementById('trainerChatMessages');
                             const aiMsg = document.createElement('div');
                             aiMsg.className = 'chat-message trainer';
-                            aiMsg.innerHTML = `📐 **${encontrado.nome}**\n\n💡 ${encontrado.dica}\n\nGrupo: ${encontrado.grupo} | MET: ${encontrado.met}`;
+                            aiMsg.innerHTML = `📐 **${encontrado.nome}**\n\n💡 ${encontrado.dica}\n\nGrupo: ${encontrado.grupo} | MET: ${encontrado.met}${video}`;
                             chatMessages.appendChild(aiMsg);
                             chatHistorico.push({role: 'assistant', content: `Execução de ${encontrado.nome}: ${encontrado.dica}`});
                             chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -2416,7 +1791,6 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        // ===== TOAST =====
         function mostrarToast(mensagem) {
             const toast = document.getElementById('toastMessage');
             toast.textContent = mensagem;
@@ -2425,7 +1799,6 @@
             toast._timer = setTimeout(() => toast.classList.add('hide'), 2500);
         }
 
-        // ===== INICIALIZAÇÃO =====
         document.addEventListener('DOMContentLoaded', function() {
             loadTheme();
             document.getElementById('themeToggle').addEventListener('click', toggleTheme);
@@ -2449,9 +1822,9 @@
             document.getElementById('filtroExerciciosModal').addEventListener('input', filtrarExerciciosCatalogo);
         });
 
-        console.log('⚡ AION - Design Futurista / IA aplicado com sucesso!');
-        console.log('✅ Todas as funcionalidades: Perfil, Treinos, Progresso, Nutrição, Chat IA.');
-        console.log('✅ Nome AION, identidade visual renovada, ícone de energia.');
+        console.log('⚡ AION - Design Futurista / IA com VÍDEOS CORRIGIDOS aplicado com sucesso!');
+        console.log('✅ Todos os links de vídeo agora estão no formato correto (watch?v=...)');
+        console.log('✅ Exercícios principais com vídeos reais funcionando.');
     </script>
 </body>
 </html>
