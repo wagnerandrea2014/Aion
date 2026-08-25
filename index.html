@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' style='fill:%236C63FF'>A</text></svg>">
     <style>
-        /* ===== TODOS OS ESTILOS (MANTIDOS) ===== */
+        /* ============================================================
+               DESIGN AION – Futurista / IA
+               ============================================================ */
         :root {
             --bg-primary: #0A0A1A;
             --bg-secondary: #12122A;
@@ -388,6 +390,53 @@
             </div>
         </div>
 
+        <!-- CRIAR TREINO -->
+        <div class="page" id="page-criar" role="tabpanel">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-plus-circle"></i> Criar seu Treino</h2>
+                <p class="card-subtitle">Monte seu treino manualmente e deixe a IA avaliar.</p>
+                
+                <!-- Modelos Full Body -->
+                <div style="margin-bottom:16px;">
+                    <h4 style="color:var(--text-primary); margin-bottom:8px;"><i class="fas fa-dumbbell"></i> Modelos Full Body</h4>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <button class="btn btn-sm btn-outline" onclick="carregarModeloFullBody('iniciante')">🔰 Iniciante</button>
+                        <button class="btn btn-sm btn-outline" onclick="carregarModeloFullBody('intermediario')">⚡ Intermediário</button>
+                        <button class="btn btn-sm btn-outline" onclick="carregarModeloFullBody('avancado')">🔥 Avançado</button>
+                    </div>
+                </div>
+
+                <!-- Montagem do Treino -->
+                <div style="margin-bottom:16px;">
+                    <h4 style="color:var(--text-primary); margin-bottom:8px;"><i class="fas fa-list"></i> Exercícios do Treino</h4>
+                    <div id="treinoManualList" style="margin-bottom:12px;">
+                        <p class="text-muted">Adicione exercícios abaixo.</p>
+                    </div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <select id="selectExercicioManual" style="flex:2; min-width:150px; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);">
+                            <option value="">Selecione um exercício...</option>
+                        </select>
+                        <input type="number" id="seriesManual" placeholder="Séries" value="3" min="1" max="10" style="flex:1; min-width:60px; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);">
+                        <input type="number" id="repeticoesManual" placeholder="Reps" value="12" min="1" max="50" style="flex:1; min-width:60px; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);">
+                        <button class="btn btn-sm btn-primary" onclick="adicionarExercicioManual()"><i class="fas fa-plus"></i> Adicionar</button>
+                    </div>
+                </div>
+
+                <!-- Avaliação da IA -->
+                <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+                    <button class="btn btn-primary" onclick="avaliarTreinoManual()"><i class="fas fa-robot"></i> Avaliar pela IA</button>
+                    <button class="btn btn-success" onclick="salvarTreinoManual()"><i class="fas fa-save"></i> Salvar Treino</button>
+                    <button class="btn btn-danger" onclick="limparTreinoManual()"><i class="fas fa-trash"></i> Limpar</button>
+                </div>
+
+                <!-- Resultado da Avaliação -->
+                <div id="avaliacaoManualResultado" style="margin-top:16px; display:none; background:rgba(255,255,255,0.04); border-radius:12px; padding:16px; border-left:3px solid var(--accent-1);">
+                    <h4 style="color:var(--text-primary);"><i class="fas fa-robot"></i> Diagnóstico da IA</h4>
+                    <div id="avaliacaoManualConteudo"></div>
+                </div>
+            </div>
+        </div>
+
         <!-- CHAT IA -->
         <div class="page" id="page-chat" role="tabpanel">
             <div class="card">
@@ -420,6 +469,7 @@
         <button class="bottom-nav-item" data-page="treinos" onclick="irPara('treinos')" role="tab" aria-selected="false"><span class="nav-icon"><i class="fas fa-dumbbell"></i></span> Treinos</button>
         <button class="bottom-nav-item" data-page="progresso" onclick="irPara('progresso')" role="tab" aria-selected="false"><span class="nav-icon"><i class="fas fa-chart-line"></i></span> Progresso</button>
         <button class="bottom-nav-item" data-page="nutricao" onclick="irPara('nutricao')" role="tab" aria-selected="false"><span class="nav-icon"><i class="fas fa-utensils"></i></span> Nutrição</button>
+        <button class="bottom-nav-item" data-page="criar" onclick="irPara('criar')" role="tab" aria-selected="false"><span class="nav-icon"><i class="fas fa-plus-circle"></i></span> Criar</button>
         <button class="bottom-nav-item" data-page="chat" onclick="irPara('chat')" role="tab" aria-selected="false"><span class="nav-icon"><i class="fas fa-comment-dots"></i></span> IA</button>
     </nav>
 
@@ -455,10 +505,10 @@
 
     <script>
         // ============================================================
-        //  AION - CÓDIGO COMPLETO (COM VÍDEOS CORRIGIDOS)
+        //  AION - CÓDIGO COMPLETO (Todas as funcionalidades)
         // ============================================================
 
-        // ==================== BANCO DE EXERCÍCIOS COM VÍDEOS REAIS ====================
+        // ==================== BANCO DE EXERCÍCIOS COM VÍDEOS ====================
         const exerciciosBase = [
             { nome: 'Leg Press (máquina)', met: 5.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Mantenha a lombar apoiada, não estenda totalmente os joelhos.', equipamento: 'maquinas', video: 'https://www.youtube.com/watch?v=izKj7qS3EgU' },
             { nome: 'Cadeira Extensora', met: 4.5, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Controle a fase excêntrica, não use impulso.', equipamento: 'maquinas', video: 'https://www.youtube.com/watch?v=1hHm7pRwX1A' },
@@ -551,6 +601,7 @@
         let notificacaoAtiva = false;
         let intervaloLembrete = null;
         let refeicoes = [];
+        let treinoManual = [];
 
         // ==================== TEMA ====================
         function toggleTheme() {
@@ -637,6 +688,7 @@
                 mostrarDica();
                 atualizarNotifStatus();
                 calcularMetasNutricionais();
+                popularSelectExercicios();
             } catch (e) { console.error('Erro ao carregar:', e); }
         }
 
@@ -676,11 +728,12 @@
             }
             if (pageName === 'treinos') renderizarTreinosSalvos();
             if (pageName === 'nutricao') { atualizarNutricao(); calcularMetasNutricionais(); }
+            if (pageName === 'criar') { popularSelectExercicios(); renderizarTreinoManual(); }
             if (pageName === 'chat') restaurarChat();
         }
 
         let touchStartX = 0, touchStartY = 0;
-        const paginas = ['perfil', 'treinos', 'progresso', 'nutricao', 'chat'];
+        const paginas = ['perfil', 'treinos', 'progresso', 'nutricao', 'criar', 'chat'];
         document.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
             touchStartY = e.changedTouches[0].screenY;
@@ -698,6 +751,7 @@
             }
         }, {passive: true});
 
+        // ===== NOTIFICAÇÕES =====
         function solicitarNotificacao() {
             if (!('Notification' in window)) { mostrarToast('⚠️ Não suportado.'); return; }
             if (Notification.permission === 'granted') { ativarLembretes(); return; }
@@ -745,6 +799,7 @@
             document.getElementById('tipText').textContent = dicas[Math.floor(Math.random() * dicas.length)];
         }
 
+        // ===== PERFIL =====
         function salvarPerfil() {
             const nome = document.getElementById('nome').value.trim() || 'Usuário';
             const sexo = document.getElementById('sexo').value;
@@ -766,6 +821,7 @@
             calcularMetasNutricionais();
         }
 
+        // ===== NUTRIÇÃO =====
         function registrarRefeicao() {
             const alimento = document.getElementById('alimento').value.trim();
             const quantidade = parseFloat(document.getElementById('quantidade').value);
@@ -896,6 +952,7 @@
             }
         }
 
+        // ===== GERAÇÃO DE TREINO =====
         function gerarTreinoPersonalizado() {
             if (!usuarioDados) { alert('Preencha seu perfil primeiro.'); return; }
             if (treinoAtual && !treinosSalvos.some(t => t.nome === treinoAtual.nome)) {
@@ -1246,6 +1303,7 @@
             mostrarToast(`🔥 ${exercicio.nome} por ${minutos} min queimou aproximadamente ${Math.round(calorias)} kcal.`);
         }
 
+        // ===== PROGRESSO PESO =====
         function registrarPeso() {
             const pesoInput = document.getElementById('novoPeso');
             const dataInput = document.getElementById('pesoData');
@@ -1315,6 +1373,7 @@
             salvarDados();
         }
 
+        // ===== GRÁFICO =====
         function renderizarGraficoPeso() {
             const canvas = document.getElementById('pesoChart');
             const chartEmpty = document.getElementById('chartEmpty');
@@ -1433,6 +1492,7 @@
             }, {passive: true});
         }
 
+        // ===== RELATÓRIO SEMANAL =====
         function gerarRelatorioSemanal() {
             const container = document.getElementById('weeklyReportContent');
             if (pesoRegistros.length < 2) {
@@ -1585,6 +1645,7 @@
             URL.revokeObjectURL(url);
         }
 
+        // ===== CATÁLOGO =====
         function abrirCatalogoExercicios() {
             document.getElementById('catalogoModal').classList.add('visible');
             renderizarExerciciosCatalogo();
@@ -1624,6 +1685,255 @@
             renderizarExerciciosCatalogo(document.getElementById('filtroExerciciosModal').value);
         }
 
+        // ===== CRIAR TREINO MANUAL =====
+        function popularSelectExercicios() {
+            const select = document.getElementById('selectExercicioManual');
+            if (!select) return;
+            select.innerHTML = '<option value="">Selecione um exercício...</option>';
+            exerciciosBase.forEach(ex => {
+                const opt = document.createElement('option');
+                opt.value = ex.nome;
+                opt.textContent = `${ex.nome} (${ex.grupo})`;
+                select.appendChild(opt);
+            });
+        }
+
+        function adicionarExercicioManual() {
+            const select = document.getElementById('selectExercicioManual');
+            const nome = select.value;
+            const series = parseInt(document.getElementById('seriesManual').value) || 3;
+            const repeticoes = parseInt(document.getElementById('repeticoesManual').value) || 12;
+            
+            if (!nome) { mostrarToast('⚠️ Selecione um exercício.'); return; }
+            
+            const exercicioBase = exerciciosBase.find(e => e.nome === nome);
+            if (!exercicioBase) { mostrarToast('⚠️ Exercício não encontrado.'); return; }
+            
+            const peso = usuarioDados?.peso || 70;
+            const ex = {
+                nome: exercicioBase.nome,
+                met: exercicioBase.met,
+                categoria: exercicioBase.categoria,
+                grupo: exercicioBase.grupo || 'Geral',
+                dica: exercicioBase.dica || 'Mantenha a postura correta.',
+                series: series,
+                repeticoes: repeticoes,
+                descanso: 60,
+                caloriasPorMinuto: (exercicioBase.met * 3.5 * peso) / 200,
+                video: exercicioBase.video || null
+            };
+            
+            treinoManual.push(ex);
+            renderizarTreinoManual();
+            document.getElementById('selectExercicioManual').value = '';
+            document.getElementById('seriesManual').value = '3';
+            document.getElementById('repeticoesManual').value = '12';
+            document.getElementById('avaliacaoManualResultado').style.display = 'none';
+            mostrarToast(`✅ ${ex.nome} adicionado!`);
+        }
+
+        function renderizarTreinoManual() {
+            const container = document.getElementById('treinoManualList');
+            if (!container) return;
+            if (treinoManual.length === 0) {
+                container.innerHTML = '<p class="text-muted">Nenhum exercício adicionado ainda.</p>';
+                return;
+            }
+            let html = '';
+            treinoManual.forEach((ex, idx) => {
+                const videoLink = ex.video ? `<a href="${ex.video}" target="_blank" class="btn btn-sm btn-outline" style="margin-left:8px;"><i class="fas fa-play"></i></a>` : '';
+                html += `
+                    <div class="treino-item" style="background:var(--bg-card); border:1px solid var(--border-glass); border-radius:12px; padding:12px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+                        <div>
+                            <strong>${ex.nome}</strong>
+                            <span style="font-size:0.8rem; color:var(--text-secondary);"> ${ex.series}x${ex.repeticoes} | ${ex.grupo}</span>
+                            ${videoLink}
+                        </div>
+                        <button class="btn btn-sm btn-danger" onclick="removerExercicioManual(${idx})"><i class="fas fa-times"></i></button>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function removerExercicioManual(idx) {
+            treinoManual.splice(idx, 1);
+            renderizarTreinoManual();
+            document.getElementById('avaliacaoManualResultado').style.display = 'none';
+        }
+
+        function limparTreinoManual() {
+            if (treinoManual.length === 0) return;
+            if (!confirm('Limpar todos os exercícios?')) return;
+            treinoManual = [];
+            renderizarTreinoManual();
+            document.getElementById('avaliacaoManualResultado').style.display = 'none';
+            mostrarToast('🗑️ Treino limpo.');
+        }
+
+        function salvarTreinoManual() {
+            if (treinoManual.length === 0) { mostrarToast('⚠️ Adicione exercícios primeiro.'); return; }
+            const nome = prompt('Nome do treino:', `Meu Treino - ${new Date().toLocaleDateString('pt-BR')}`);
+            if (!nome) return;
+            
+            const duracao = treinoManual.length * 3;
+            const gastoTotal = treinoManual.reduce((acc, ex) => acc + ex.caloriasPorMinuto * (duracao / treinoManual.length), 0);
+            
+            const treino = {
+                nome: nome,
+                exercicios: treinoManual.map(ex => ({ ...ex })),
+                gastoTotal: Math.round(gastoTotal),
+                duracao: duracao
+            };
+            
+            const existente = treinosSalvos.find(t => t.nome === nome);
+            if (existente) {
+                if (!confirm(`Já existe um treino com o nome "${nome}". Deseja substituir?`)) return;
+                Object.assign(existente, treino);
+            } else {
+                treinosSalvos.push(treino);
+            }
+            renderizarTreinosSalvos();
+            salvarDados();
+            mostrarToast(`💾 Treino "${nome}" salvo!`);
+        }
+
+        function avaliarTreinoManual() {
+            if (treinoManual.length === 0) { mostrarToast('⚠️ Adicione exercícios primeiro.'); return; }
+            if (!usuarioDados) { mostrarToast('⚠️ Preencha seu perfil para uma avaliação precisa.'); return; }
+            
+            const container = document.getElementById('avaliacaoManualResultado');
+            const conteudo = document.getElementById('avaliacaoManualConteudo');
+            container.style.display = 'block';
+            
+            const peso = usuarioDados.peso;
+            const duracao = treinoManual.length * 3;
+            const gastoTotal = treinoManual.reduce((acc, ex) => acc + ex.caloriasPorMinuto * (duracao / treinoManual.length), 0);
+            
+            const grupos = {};
+            treinoManual.forEach(ex => {
+                if (!grupos[ex.grupo]) grupos[ex.grupo] = 0;
+                grupos[ex.grupo] += ex.series * ex.repeticoes;
+            });
+            
+            const recomendacoes = [];
+            const gruposPrincipais = ['Inferiores', 'Costas', 'Peito', 'Ombros'];
+            gruposPrincipais.forEach(g => {
+                if (!grupos[g] || grupos[g] < 20) {
+                    recomendacoes.push(`⚠️ Pouco volume para ${g}. Considere adicionar exercícios para este grupo.`);
+                }
+            });
+            
+            if (gastoTotal < 150) {
+                recomendacoes.push('🔥 Gasto calórico baixo. Para maior queima, adicione exercícios aeróbicos ou aumente o volume.');
+            } else if (gastoTotal > 400) {
+                recomendacoes.push('💪 Gasto calórico alto. Ótimo para perda de peso, mas lembre-se de se alimentar bem para recuperação.');
+            } else {
+                recomendacoes.push('✅ Gasto calórico equilibrado. Mantenha o foco na execução.');
+            }
+            
+            const totalSeries = treinoManual.reduce((acc, ex) => acc + ex.series, 0);
+            if (totalSeries > 20) {
+                recomendacoes.push('⏱️ Volume alto (mais de 20 séries). Considere aumentar o descanso entre séries para 90s.');
+            }
+            
+            const temCardio = treinoManual.some(ex => ex.categoria === 'Aeróbico');
+            if (!temCardio && usuarioDados.objetivo === 'perda') {
+                recomendacoes.push('🏃 Para perda de peso, adicione 15-20 minutos de cardio no final do treino.');
+            }
+            
+            let html = `
+                <div style="margin-bottom:12px;">
+                    <p><strong>📊 Resumo:</strong> ${treinoManual.length} exercícios | ${totalSeries} séries | ⏱️ ~${duracao} min | 🔥 ${Math.round(gastoTotal)} kcal</p>
+                </div>
+                <div style="margin-bottom:12px;">
+                    <p><strong>📋 Distribuição por grupo:</strong></p>
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:4px;">
+                        ${Object.entries(grupos).map(([g, v]) => `<span class="badge badge-blue">${g}: ${v} reps</span>`).join('')}
+                    </div>
+                </div>
+                <div>
+                    <p><strong>💡 Recomendações da IA:</strong></p>
+                    <ul style="list-style:none; padding:0;">
+                        ${recomendacoes.map(r => `<li style="padding:4px 0; border-bottom:1px solid var(--border-glass);">${r}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            conteudo.innerHTML = html;
+        }
+
+        // ===== MODELOS FULL BODY =====
+        function carregarModeloFullBody(nivel) {
+            if (!usuarioDados) { mostrarToast('⚠️ Preencha seu perfil primeiro.'); return; }
+            if (treinoManual.length > 0) {
+                if (!confirm('Isso substituirá seu treino atual. Continuar?')) return;
+            }
+            treinoManual = [];
+            
+            const peso = usuarioDados.peso || 70;
+            
+            const modelos = {
+                'iniciante': [
+                    { nome: 'Leg Press (máquina)', series: 3, repeticoes: 12 },
+                    { nome: 'Supino Máquina', series: 3, repeticoes: 12 },
+                    { nome: 'Puxador Frontal (Polia Alta)', series: 3, repeticoes: 12 },
+                    { nome: 'Cadeira Flexora', series: 3, repeticoes: 15 },
+                    { nome: 'Elevação Lateral (Máquina)', series: 3, repeticoes: 12 },
+                    { nome: 'Rosca Direta com Barra', series: 3, repeticoes: 12 },
+                    { nome: 'Tríceps Pulley (Polia Alta)', series: 3, repeticoes: 12 },
+                    { nome: 'Abdominal na Máquina (Crunch)', series: 3, repeticoes: 15 },
+                ],
+                'intermediario': [
+                    { nome: 'Agachamento Livre (com barra)', series: 4, repeticoes: 10 },
+                    { nome: 'Supino Reto com Barra', series: 4, repeticoes: 10 },
+                    { nome: 'Remada Curvada com Barra', series: 4, repeticoes: 10 },
+                    { nome: 'Desenvolvimento com Halteres', series: 4, repeticoes: 10 },
+                    { nome: 'Cadeira Flexora', series: 4, repeticoes: 12 },
+                    { nome: 'Rosca Alternada com Halteres', series: 4, repeticoes: 12 },
+                    { nome: 'Tríceps Pulley (Polia Alta)', series: 4, repeticoes: 12 },
+                    { nome: 'Elevação de Pernas (Barra Fixa)', series: 4, repeticoes: 12 },
+                ],
+                'avancado': [
+                    { nome: 'Agachamento Livre (com barra)', series: 5, repeticoes: 8 },
+                    { nome: 'Supino Reto com Barra', series: 5, repeticoes: 8 },
+                    { nome: 'Remada Curvada com Barra', series: 5, repeticoes: 8 },
+                    { nome: 'Desenvolvimento com Halteres', series: 5, repeticoes: 8 },
+                    { nome: 'Stiff (peso livre)', series: 4, repeticoes: 10 },
+                    { nome: 'Rosca Martelo', series: 4, repeticoes: 10 },
+                    { nome: 'Tríceps Mergulho (bancos)', series: 4, repeticoes: 10 },
+                    { nome: 'Elevação de Pernas (Barra Fixa)', series: 4, repeticoes: 12 },
+                    { nome: 'Elevação Lateral (Máquina)', series: 4, repeticoes: 12 },
+                    { nome: 'Prancha (isometria)', series: 3, repeticoes: 45 },
+                ]
+            };
+            
+            const lista = modelos[nivel] || modelos['iniciante'];
+            
+            lista.forEach(item => {
+                const base = exerciciosBase.find(e => e.nome === item.nome);
+                if (base) {
+                    treinoManual.push({
+                        nome: base.nome,
+                        met: base.met,
+                        categoria: base.categoria,
+                        grupo: base.grupo || 'Geral',
+                        dica: base.dica || 'Mantenha a postura correta.',
+                        series: item.series,
+                        repeticoes: item.repeticoes,
+                        descanso: 60,
+                        caloriasPorMinuto: (base.met * 3.5 * peso) / 200,
+                        video: base.video || null
+                    });
+                }
+            });
+            
+            renderizarTreinoManual();
+            document.getElementById('avaliacaoManualResultado').style.display = 'none';
+            mostrarToast(`🏋️ Treino Full Body ${nivel.charAt(0).toUpperCase() + nivel.slice(1)} carregado!`);
+        }
+
+        // ===== CHAT IA =====
         function enviarMensagem() {
             const input = document.getElementById('chatInput');
             const mensagem = input.value.trim();
@@ -1791,6 +2101,7 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
+        // ===== TOAST =====
         function mostrarToast(mensagem) {
             const toast = document.getElementById('toastMessage');
             toast.textContent = mensagem;
@@ -1799,6 +2110,7 @@
             toast._timer = setTimeout(() => toast.classList.add('hide'), 2500);
         }
 
+        // ===== INICIALIZAÇÃO =====
         document.addEventListener('DOMContentLoaded', function() {
             loadTheme();
             document.getElementById('themeToggle').addEventListener('click', toggleTheme);
@@ -1820,11 +2132,12 @@
                 });
             });
             document.getElementById('filtroExerciciosModal').addEventListener('input', filtrarExerciciosCatalogo);
+            popularSelectExercicios();
         });
 
-        console.log('⚡ AION - Design Futurista / IA com VÍDEOS CORRIGIDOS aplicado com sucesso!');
-        console.log('✅ Todos os links de vídeo agora estão no formato correto (watch?v=...)');
-        console.log('✅ Exercícios principais com vídeos reais funcionando.');
+        console.log('⚡ AION - Design Futurista / IA com CRIAÇÃO DE TREINO e FULL BODY aplicado com sucesso!');
+        console.log('✅ Todas as funcionalidades: Perfil, Treinos, Progresso, Nutrição, Criar Treino, Chat IA.');
+        console.log('✅ Modelos Full Body para Iniciante, Intermediário e Avançado.');
     </script>
 </body>
 </html>
