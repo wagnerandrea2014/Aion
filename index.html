@@ -90,8 +90,8 @@
         .btn-trainer { background: var(--accent-gradient); color: #fff; }
         .btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
         .bottom-nav { height: var(--bottom-nav-height); background: var(--bg-secondary); backdrop-filter: var(--glass-blur); border-top: 1px solid var(--border-glass); display: flex; align-items: center; justify-content: space-around; flex-shrink: 0; padding-bottom: env(safe-area-inset-bottom, 0); z-index: 50; }
-        .bottom-nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 0.6rem; color: var(--text-muted); background: transparent; border: none; cursor: pointer; transition: var(--transition); flex: 1; height: 100%; padding: 4px 0; font-family: var(--font); position: relative; }
-        .bottom-nav-item .nav-icon { font-size: 1.5rem; line-height: 1; transition: var(--transition); }
+        .bottom-nav-item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size: 0.5rem; color: var(--text-muted); background: transparent; border: none; cursor: pointer; transition: var(--transition); flex: 1; height: 100%; padding: 4px 0; font-family: var(--font); position: relative; }
+        .bottom-nav-item .nav-icon { font-size: 1.2rem; line-height: 1; transition: var(--transition); }
         .bottom-nav-item.active { color: var(--accent-1); }
         .bottom-nav-item.active .nav-icon { transform: scale(1.1); text-shadow: 0 0 20px rgba(108, 99, 255, 0.4); }
         .bottom-nav-item.active::after { content: ''; position: absolute; top: 0; left: 30%; right: 30%; height: 2px; background: var(--accent-gradient); border-radius: 0 0 4px 4px; }
@@ -151,11 +151,34 @@
         .badge-red { background: rgba(255,107,107,0.15); color: #ff6b6b; border-color: rgba(255,107,107,0.2); }
         .badge-orange { background: rgba(255,159,67,0.15); color: #ff9f43; border-color: rgba(255,159,67,0.2); }
         .badge-purple { background: rgba(108,99,255,0.2); color: var(--accent-1); border-color: rgba(108,99,255,0.3); }
+        .badge-gold { background: rgba(255,215,0,0.15); color: #ffd700; border-color: rgba(255,215,0,0.2); }
         .toast-msg { position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--bg-secondary); backdrop-filter: var(--glass-blur); border: 1px solid var(--border-glass); color: var(--text-primary); padding: 12px 24px; border-radius: 30px; font-size: 0.9rem; font-weight: 500; box-shadow: var(--shadow-card); z-index: 2000; transition: opacity 0.4s; max-width: 90%; text-align: center; }
         .toast-msg.hide { opacity: 0; }
         .spinner-ia { display: inline-block; width: 24px; height: 24px; border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--accent-1); border-radius: 50%; animation: spin 0.8s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
-        @media (max-width: 480px) { .form-row, .form-row-3 { grid-template-columns: 1fr; } .nutri-summary { grid-template-columns: 1fr 1fr; } .weekly-report .report-grid { grid-template-columns: 1fr 1fr; } .header .logo { font-size: 1rem; } .header .logo .icon { font-size: 1.4rem; } .chat-message { max-width: 95%; } .bottom-nav-item .nav-icon { font-size: 1.3rem; } .bottom-nav-item { font-size: 0.55rem; } }
+        .registro-item { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 12px; padding: 12px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .registro-item .info { flex: 1; }
+        .registro-item .info .nome { font-weight: 600; }
+        .registro-item .info .detalhes { font-size: 0.8rem; color: var(--text-secondary); }
+        .registro-item .calorias { font-weight: 600; color: var(--accent-1); }
+        .registro-item .delete-btn { background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px 8px; }
+        .registro-item .delete-btn:hover { color: #ff6b6b; }
+        .resultado-analise { background: rgba(255,255,255,0.04); border-radius: 12px; padding: 16px; border-left: 3px solid var(--accent-1); margin-top: 16px; }
+        .resultado-analise .total { font-size: 1.6rem; font-weight: 700; color: var(--accent-1); }
+        .resultado-analise .detalhes { margin-top: 8px; }
+        .dia-treino-btn { background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: 12px; padding: 10px 14px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: var(--transition); width: 100%; color: var(--text-primary); font-family: var(--font); }
+        .dia-treino-btn:hover { background: var(--bg-card-hover); }
+        .dia-treino-btn .dia { font-weight: 600; }
+        .dia-treino-btn .status { font-size: 0.8rem; color: var(--text-muted); }
+        .editar-modal .modal-content { max-width: 700px; }
+        .editar-modal .treino-item-edicao { background: rgba(255,255,255,0.03); border-radius: 8px; padding: 10px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .editar-modal .treino-item-edicao input, .editar-modal .treino-item-edicao select { background: rgba(255,255,255,0.06); border: 1px solid var(--border-glass); border-radius: 6px; padding: 6px 10px; color: var(--text-primary); font-size: 0.8rem; }
+        .editar-modal .treino-item-edicao input { width: 60px; }
+        .editar-modal .treino-item-edicao select { flex: 1; min-width: 120px; }
+        .editar-modal .treino-item-edicao .campo-cardio { display: none; }
+        .editar-modal .treino-item-edicao.cardio .campo-cardio { display: inline-block; }
+        .info-semana { font-size: 0.8rem; color: var(--text-muted); background: rgba(255,255,255,0.04); padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 8px; }
+        @media (max-width: 480px) { .form-row, .form-row-3 { grid-template-columns: 1fr; } .nutri-summary { grid-template-columns: 1fr 1fr; } .weekly-report .report-grid { grid-template-columns: 1fr 1fr; } .header .logo { font-size: 1rem; } .header .logo .icon { font-size: 1.4rem; } .chat-message { max-width: 95%; } .bottom-nav-item .nav-icon { font-size: 1rem; } .bottom-nav-item { font-size: 0.45rem; } }
         @media (min-width: 768px) { .app-content { padding: 24px 32px; } }
         .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
         .text-muted { color: var(--text-muted); }
@@ -273,16 +296,20 @@
             <div class="card">
                 <h2 class="card-title"><i class="fas fa-dumbbell"></i> Seus Treinos</h2>
                 <p class="card-subtitle">Gerados pela IA com base no seu perfil e nutrição.</p>
+                <div id="infoSemana" class="info-semana"></div>
                 <div class="flex" style="flex-wrap:wrap; gap:8px; margin-bottom:16px;">
-                    <button class="btn btn-trainer btn-sm" onclick="gerarTreinoPersonalizado()" id="btnGerarTreino"><i class="fas fa-robot"></i> Gerar Novo</button>
-                    <button class="btn btn-outline btn-sm" onclick="gerarTreinoRapido()"><i class="fas fa-bolt"></i> Rápido (15min)</button>
+                    <button class="btn btn-trainer btn-sm" onclick="abrirModalEscolhaTreino()" id="btnGerarTreino"><i class="fas fa-robot"></i> Gerar Novo</button>
                     <button class="btn btn-outline btn-sm" onclick="mostrarTreinosSalvos()"><i class="fas fa-folder"></i> Meus Treinos</button>
                     <button class="btn btn-outline btn-sm" onclick="calcularGastoExercicio()"><i class="fas fa-fire"></i> Gasto</button>
                     <button class="btn btn-outline btn-sm" onclick="abrirCatalogoExercicios()"><i class="fas fa-book"></i> Catálogo</button>
+                    <button class="btn btn-outline btn-sm" onclick="irPara('criar')"><i class="fas fa-plus-circle"></i> Criar</button>
                 </div>
-                <div id="treinoPersonalizadoContainer">
-                    <p class="text-muted">Clique em <strong>Gerar Novo</strong> para receber uma sugestão personalizada.</p>
+
+                <div id="treinosSemanaContainer">
+                    <h4 style="color:var(--text-primary); margin-bottom:12px;"><i class="fas fa-calendar-week"></i> Treinos da Semana Atual</h4>
+                    <div id="treinosSemanaList"></div>
                 </div>
+
                 <div id="treinosSalvosContainer" style="display:none; margin-top:12px;">
                     <h4 style="color:var(--text-primary);"><i class="fas fa-folder-open"></i> Treinos Salvos</h4>
                     <div id="treinosSalvosList" style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;"></div>
@@ -396,7 +423,6 @@
                 <h2 class="card-title"><i class="fas fa-plus-circle"></i> Criar seu Treino</h2>
                 <p class="card-subtitle">Monte seu treino manualmente e deixe a IA avaliar.</p>
                 
-                <!-- Modelos Full Body -->
                 <div style="margin-bottom:16px;">
                     <h4 style="color:var(--text-primary); margin-bottom:8px;"><i class="fas fa-dumbbell"></i> Modelos Full Body</h4>
                     <div style="display:flex; gap:8px; flex-wrap:wrap;">
@@ -406,7 +432,6 @@
                     </div>
                 </div>
 
-                <!-- Montagem do Treino -->
                 <div style="margin-bottom:16px;">
                     <h4 style="color:var(--text-primary); margin-bottom:8px;"><i class="fas fa-list"></i> Exercícios do Treino</h4>
                     <div id="treinoManualList" style="margin-bottom:12px;">
@@ -422,17 +447,109 @@
                     </div>
                 </div>
 
-                <!-- Avaliação da IA -->
                 <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
                     <button class="btn btn-primary" onclick="avaliarTreinoManual()"><i class="fas fa-robot"></i> Avaliar pela IA</button>
                     <button class="btn btn-success" onclick="salvarTreinoManual()"><i class="fas fa-save"></i> Salvar Treino</button>
                     <button class="btn btn-danger" onclick="limparTreinoManual()"><i class="fas fa-trash"></i> Limpar</button>
                 </div>
 
-                <!-- Resultado da Avaliação -->
                 <div id="avaliacaoManualResultado" style="margin-top:16px; display:none; background:rgba(255,255,255,0.04); border-radius:12px; padding:16px; border-left:3px solid var(--accent-1);">
                     <h4 style="color:var(--text-primary);"><i class="fas fa-robot"></i> Diagnóstico da IA</h4>
                     <div id="avaliacaoManualConteudo"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- REGISTRAR TREINO -->
+        <div class="page" id="page-registrar" role="tabpanel">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-clipboard-list"></i> Registrar Treino</h2>
+                <p class="card-subtitle">Adicione os exercícios que você realizou hoje e veja o gasto calórico calculado pela IA.</p>
+
+                <div style="margin-bottom:16px;">
+                    <h4 style="color:var(--text-primary); margin-bottom:8px;"><i class="fas fa-plus-circle"></i> Adicionar Exercício</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="regExercicio"><i class="fas fa-dumbbell"></i> Exercício</label>
+                            <select id="regExercicio" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);">
+                                <option value="">Selecione...</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="regData"><i class="fas fa-calendar-day"></i> Data</label>
+                            <input type="date" id="regData" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);">
+                        </div>
+                    </div>
+
+                    <div id="camposDinamicos">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="regTipo"><i class="fas fa-tag"></i> Tipo</label>
+                                <select id="regTipo" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);" onchange="atualizarCamposDinamicos()">
+                                    <option value="musculacao">Musculação</option>
+                                    <option value="esteira">Esteira</option>
+                                    <option value="escada">Escada</option>
+                                    <option value="bicicleta">Bicicleta</option>
+                                    <option value="elíptico">Elíptico</option>
+                                    <option value="outro_cardio">Outro Cardio</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="campoIntensidade">
+                                <label for="regIntensidade"><i class="fas fa-wave-square"></i> Intensidade</label>
+                                <select id="regIntensidade" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);">
+                                    <option value="leve">Leve</option>
+                                    <option value="moderada" selected>Moderada</option>
+                                    <option value="intensa">Intensa</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="camposEspecificos">
+                            <div class="form-row" id="camposMusculacao">
+                                <div class="form-group"><label for="regSeries">Séries</label><input type="number" id="regSeries" value="3" min="1" max="10" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);"></div>
+                                <div class="form-group"><label for="regRepeticoes">Repetições</label><input type="number" id="regRepeticoes" value="12" min="1" max="50" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);"></div>
+                                <div class="form-group"><label for="regCarga">Carga (kg) - opcional</label><input type="number" id="regCarga" placeholder="0" min="0" step="0.5" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);"></div>
+                            </div>
+                            <div class="form-row" id="camposCardio" style="display:none;">
+                                <div class="form-group"><label for="regTempo">Tempo (min)</label><input type="number" id="regTempo" placeholder="30" min="1" step="1" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);"></div>
+                                <div class="form-group"><label for="regDistancia">Distância (km) - opcional</label><input type="number" id="regDistancia" placeholder="0" min="0" step="0.1" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);"></div>
+                                <div class="form-group"><label for="regVelocidade">Velocidade média (km/h) - opcional</label><input type="number" id="regVelocidade" placeholder="0" min="0" step="0.1" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);"></div>
+                                <div class="form-group"><label for="regPassos">Passos (escada) - opcional</label><input type="number" id="regPassos" placeholder="0" min="0" step="1" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);"></div>
+                                <div class="form-group"><label for="regInclinacao">Inclinação (%) - opcional</label><input type="number" id="regInclinacao" placeholder="0" min="0" step="1" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="adicionarRegistroExercicio()"><i class="fas fa-plus"></i> Adicionar ao Registro</button>
+                </div>
+
+                <div style="margin-bottom:16px;">
+                    <h4 style="color:var(--text-primary); margin-bottom:8px;"><i class="fas fa-list"></i> Registros de Hoje</h4>
+                    <div id="registrosHojeList">
+                        <p class="text-muted">Nenhum registro adicionado hoje.</p>
+                    </div>
+                </div>
+
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px;">
+                    <button class="btn btn-trainer" onclick="analisarRegistros()"><i class="fas fa-robot"></i> Analisar e Calcular Gasto</button>
+                    <button class="btn btn-danger" onclick="limparRegistrosHoje()"><i class="fas fa-trash"></i> Limpar registros de hoje</button>
+                </div>
+
+                <div id="resultadoAnalise" style="display:none;">
+                    <div class="resultado-analise">
+                        <h4 style="color:var(--text-primary);"><i class="fas fa-fire"></i> Resultado da Análise</h4>
+                        <div id="conteudoAnalise"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title"><i class="fas fa-history"></i> Histórico de Registros</h3>
+                <p class="card-subtitle">Veja os registros dos dias anteriores.</p>
+                <div style="margin-bottom:8px;">
+                    <input type="date" id="histData" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);" onchange="mostrarHistoricoData()">
+                </div>
+                <div id="historicoRegistrosList">
+                    <p class="text-muted">Selecione uma data para ver os registros.</p>
                 </div>
             </div>
         </div>
@@ -469,9 +586,55 @@
         <button class="bottom-nav-item" data-page="treinos" onclick="irPara('treinos')" role="tab" aria-selected="false"><span class="nav-icon"><i class="fas fa-dumbbell"></i></span> Treinos</button>
         <button class="bottom-nav-item" data-page="progresso" onclick="irPara('progresso')" role="tab" aria-selected="false"><span class="nav-icon"><i class="fas fa-chart-line"></i></span> Progresso</button>
         <button class="bottom-nav-item" data-page="nutricao" onclick="irPara('nutricao')" role="tab" aria-selected="false"><span class="nav-icon"><i class="fas fa-utensils"></i></span> Nutrição</button>
-        <button class="bottom-nav-item" data-page="criar" onclick="irPara('criar')" role="tab" aria-selected="false"><span class="nav-icon"><i class="fas fa-plus-circle"></i></span> Criar</button>
+        <button class="bottom-nav-item" data-page="registrar" onclick="irPara('registrar')" role="tab" aria-selected="false"><span class="nav-icon"><i class="fas fa-clipboard-list"></i></span> Registrar</button>
         <button class="bottom-nav-item" data-page="chat" onclick="irPara('chat')" role="tab" aria-selected="false"><span class="nav-icon"><i class="fas fa-comment-dots"></i></span> IA</button>
     </nav>
+
+    <!-- ===== MODAL DE ESCOLHA DE TREINO ===== -->
+    <div class="trainer-modal" id="modalEscolhaTreino" role="dialog" aria-modal="true" aria-labelledby="escolhaTitle">
+        <div class="modal-content">
+            <button class="close-btn" onclick="fecharModalEscolha()"><i class="fas fa-times"></i></button>
+            <h3 id="escolhaTitle"><i class="fas fa-robot"></i> Gerar Treino</h3>
+            <p style="color:var(--text-secondary); margin-bottom:16px;">Escolha o grupo muscular e o dia da semana:</p>
+            <div class="form-group">
+                <label for="grupoMuscular">Grupo Muscular</label>
+                <select id="grupoMuscular" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);">
+                    <option value="superior">🔼 Superior (Peito, Costas, Ombros, Braços)</option>
+                    <option value="inferior">🔽 Inferior (Quadríceps, Posteriores, Glúteos, Panturrilha)</option>
+                    <option value="fullbody" selected>🔄 Fullbody (Todos os grupos)</option>
+                    <option value="cardio">🏃 Cardio (Esteira, Escada, Bicicleta, Elíptico)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="diaSemana">Dia da Semana</label>
+                <select id="diaSemana" style="width:100%; padding:10px; border-radius:12px; border:1px solid var(--border-glass); background:var(--bg-card); color:var(--text-primary);">
+                    <option value="segunda">Segunda-feira</option>
+                    <option value="terca">Terça-feira</option>
+                    <option value="quarta">Quarta-feira</option>
+                    <option value="quinta">Quinta-feira</option>
+                    <option value="sexta">Sexta-feira</option>
+                    <option value="sabado">Sábado</option>
+                </select>
+            </div>
+            <div style="margin-top:16px; display:flex; gap:10px;">
+                <button class="btn btn-primary" onclick="gerarTreinoComEscolha()"><i class="fas fa-robot"></i> Gerar</button>
+                <button class="btn btn-outline" onclick="fecharModalEscolha()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL DE EDIÇÃO DE TREINO ===== -->
+    <div class="trainer-modal editar-modal" id="modalEditarTreino" role="dialog" aria-modal="true" aria-labelledby="editarTitle">
+        <div class="modal-content">
+            <button class="close-btn" onclick="fecharModalEditar()"><i class="fas fa-times"></i></button>
+            <h3 id="editarTitle"><i class="fas fa-edit"></i> Editar Treino</h3>
+            <div id="editarConteudo"></div>
+            <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+                <button class="btn btn-success" onclick="salvarEdicaoTreino()"><i class="fas fa-save"></i> Salvar Alterações</button>
+                <button class="btn btn-outline" onclick="fecharModalEditar()">Cancelar</button>
+            </div>
+        </div>
+    </div>
 
     <!-- ===== MODAL ===== -->
     <div class="trainer-modal" id="trainerModal" role="dialog" aria-modal="true" aria-labelledby="trainerModalTitle">
@@ -505,10 +668,10 @@
 
     <script>
         // ============================================================
-        //  AION - CÓDIGO COMPLETO (Todas as funcionalidades)
+        //  AION - CÓDIGO COMPLETO (Ciclo de 2 semanas com sábado)
         // ============================================================
 
-        // ==================== BANCO DE EXERCÍCIOS COM VÍDEOS ====================
+        // ==================== BANCO DE EXERCÍCIOS ====================
         const exerciciosBase = [
             { nome: 'Leg Press (máquina)', met: 5.0, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Mantenha a lombar apoiada, não estenda totalmente os joelhos.', equipamento: 'maquinas', video: 'https://www.youtube.com/watch?v=izKj7qS3EgU' },
             { nome: 'Cadeira Extensora', met: 4.5, categoria: 'Musculação', grupo: 'Inferiores', dica: 'Controle a fase excêntrica, não use impulso.', equipamento: 'maquinas', video: 'https://www.youtube.com/watch?v=1hHm7pRwX1A' },
@@ -602,6 +765,46 @@
         let intervaloLembrete = null;
         let refeicoes = [];
         let treinoManual = [];
+        let registrosTreino = [];
+        let treinosCiclo = {}; // chaves: "segunda_1", "segunda_2", ...
+        let dataInicioCiclo = null;
+
+        // ==================== FUNÇÕES DE SEMANA ====================
+        function getSemanaAtual() {
+            if (!dataInicioCiclo) {
+                // Iniciar com a data de hoje
+                dataInicioCiclo = new Date().toISOString().split('T')[0];
+                salvarDados();
+            }
+            const hoje = new Date();
+            const inicio = new Date(dataInicioCiclo + 'T00:00:00');
+            const diffMs = hoje - inicio;
+            const diffDias = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+            const semana = (Math.floor(diffDias / 7) % 2) + 1; // 1 ou 2
+            return semana;
+        }
+
+        function getChaveTreino(dia, semana) {
+            return dia + '_' + semana;
+        }
+
+        function getTreinoDoDia(dia) {
+            const semana = getSemanaAtual();
+            const chave = getChaveTreino(dia, semana);
+            return treinosCiclo[chave] || null;
+        }
+
+        function salvarTreinoNoDia(dia, treino) {
+            const semana = getSemanaAtual();
+            const chave = getChaveTreino(dia, semana);
+            treinosCiclo[chave] = treino;
+            salvarDados();
+        }
+
+        function getInfoSemana() {
+            const semana = getSemanaAtual();
+            return `Semana ${semana} do ciclo (alterna a cada 7 dias)`;
+        }
 
         // ==================== TEMA ====================
         function toggleTheme() {
@@ -630,6 +833,9 @@
                     chatHistorico: chatHistorico,
                     ultimoTreinoGerado: ultimoTreinoGerado,
                     refeicoes: refeicoes,
+                    registrosTreino: registrosTreino,
+                    treinosCiclo: treinosCiclo,
+                    dataInicioCiclo: dataInicioCiclo,
                     camposPerfil: {
                         nome: document.getElementById('nome')?.value || '',
                         sexo: document.getElementById('sexo')?.value || 'masculino',
@@ -683,12 +889,18 @@
                 if (dados.chatHistorico) { chatHistorico = dados.chatHistorico; restaurarChat(); }
                 if (dados.ultimoTreinoGerado) ultimoTreinoGerado = dados.ultimoTreinoGerado;
                 if (dados.refeicoes) { refeicoes = dados.refeicoes; atualizarNutricao(); }
+                if (dados.registrosTreino) { registrosTreino = dados.registrosTreino; renderizarRegistrosHoje(); }
+                if (dados.treinosCiclo) { treinosCiclo = dados.treinosCiclo; }
+                if (dados.dataInicioCiclo) { dataInicioCiclo = dados.dataInicioCiclo; }
                 if (dados.ultimaPagina) irPara(dados.ultimaPagina);
                 renderizarExerciciosCatalogo();
                 mostrarDica();
                 atualizarNotifStatus();
                 calcularMetasNutricionais();
                 popularSelectExercicios();
+                popularSelectRegistro();
+                renderizarTreinosSemana();
+                document.getElementById('infoSemana').textContent = getInfoSemana();
             } catch (e) { console.error('Erro ao carregar:', e); }
         }
 
@@ -726,14 +938,15 @@
             if (pageName === 'progresso') {
                 setTimeout(() => { renderizarGraficoPeso(); gerarRelatorioSemanal(); }, 200);
             }
-            if (pageName === 'treinos') renderizarTreinosSalvos();
+            if (pageName === 'treinos') { renderizarTreinosSalvos(); renderizarTreinosSemana(); document.getElementById('infoSemana').textContent = getInfoSemana(); }
             if (pageName === 'nutricao') { atualizarNutricao(); calcularMetasNutricionais(); }
             if (pageName === 'criar') { popularSelectExercicios(); renderizarTreinoManual(); }
+            if (pageName === 'registrar') { popularSelectRegistro(); renderizarRegistrosHoje(); }
             if (pageName === 'chat') restaurarChat();
         }
 
         let touchStartX = 0, touchStartY = 0;
-        const paginas = ['perfil', 'treinos', 'progresso', 'nutricao', 'criar', 'chat'];
+        const paginas = ['perfil', 'treinos', 'progresso', 'nutricao', 'registrar', 'chat'];
         document.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
             touchStartY = e.changedTouches[0].screenY;
@@ -941,52 +1154,39 @@
                 <p><strong>Balanço do dia:</strong> ${msg}</p>
                 <p style="font-size:0.8rem; color:var(--text-muted);">💡 Lembre-se de ajustar as quantidades conforme seu progresso.</p>
             `;
-            const treinoMsg = document.getElementById('treinoPersonalizadoContainer');
-            if (treinoMsg && treinoMsg.querySelector('p')?.textContent.includes('Clique em')) {
-                let ajuste = '';
-                if (diff < -300) ajuste = '🔥 Você está em déficit calórico. Priorize treinos com mais cardio e menor volume de musculação para preservar músculo.';
-                else if (diff > 300) ajuste = '💪 Você está em superávit calórico. Aproveite para treinos de força com maior volume (mais séries e repetições).';
-                if (ajuste) {
-                    treinoMsg.innerHTML = `<p style="color: var(--text-secondary);">${ajuste}</p><p class="text-muted" style="font-size:0.8rem;">Clique em "Gerar Novo" para uma sugestão personalizada.</p>`;
-                }
-            }
         }
 
         // ===== GERAÇÃO DE TREINO =====
-        function gerarTreinoPersonalizado() {
+        function abrirModalEscolhaTreino() {
+            document.getElementById('modalEscolhaTreino').classList.add('visible');
+        }
+
+        function fecharModalEscolha() {
+            document.getElementById('modalEscolhaTreino').classList.remove('visible');
+        }
+
+        function gerarTreinoComEscolha() {
+            const grupo = document.getElementById('grupoMuscular').value;
+            const dia = document.getElementById('diaSemana').value;
+            fecharModalEscolha();
+
             if (!usuarioDados) { alert('Preencha seu perfil primeiro.'); return; }
-            if (treinoAtual && !treinosSalvos.some(t => t.nome === treinoAtual.nome)) {
-                if (!confirm('Você tem um treino atual não salvo. Deseja substituí-lo?')) return;
-            }
+
             mostrarLoading(true);
             setTimeout(() => {
-                const treino = gerarTreinoInterno(30, false);
+                const treino = gerarTreinoInterno(30, false, grupo);
                 mostrarLoading(false);
                 if (treino) {
-                    treinoAtual = treino;
-                    ultimoTreinoGerado = treino;
+                    salvarTreinoNoDia(dia, treino);
+                    renderizarTreinosSemana();
                     salvarDados();
+                    treinoAtual = treino;
                     abrirTrainerModal(treino);
                 }
             }, 300);
         }
 
-        function gerarTreinoRapido() {
-            if (!usuarioDados) { alert('Preencha seu perfil primeiro.'); return; }
-            mostrarLoading(true);
-            setTimeout(() => {
-                const treino = gerarTreinoInterno(15, true);
-                mostrarLoading(false);
-                if (treino) {
-                    treinoAtual = treino;
-                    ultimoTreinoGerado = treino;
-                    salvarDados();
-                    abrirTrainerModal(treino);
-                }
-            }, 300);
-        }
-
-        function gerarTreinoInterno(duracaoMin, rapido) {
+        function gerarTreinoInterno(duracaoMin, rapido, grupoSelecionado) {
             const d = usuarioDados;
             const restricoes = d.restricoes ? d.restricoes.split(/\s*,\s*/).filter(r => r) : [];
             let disponiveis = [...exerciciosBase];
@@ -1001,6 +1201,31 @@
                     return !restricoes.some(r => texto.includes(r));
                 });
             }
+
+            if (grupoSelecionado === 'cardio') {
+                disponiveis = disponiveis.filter(e => e.categoria === 'Aeróbico' && (e.equipamento === 'cardio' || e.equipamento === 'casa'));
+                const prioridade = ['Esteira', 'Escada', 'Bicicleta', 'Elíptico'];
+                disponiveis.sort((a, b) => {
+                    const aIdx = prioridade.findIndex(p => a.nome.includes(p));
+                    const bIdx = prioridade.findIndex(p => b.nome.includes(p));
+                    return (aIdx === -1 ? 999 : aIdx) - (bIdx === -1 ? 999 : bIdx);
+                });
+            }
+
+            let gruposFiltro = [];
+            if (grupoSelecionado === 'superior') {
+                gruposFiltro = ['Peito', 'Costas', 'Ombros', 'Bíceps', 'Tríceps'];
+            } else if (grupoSelecionado === 'inferior') {
+                gruposFiltro = ['Inferiores'];
+            } else if (grupoSelecionado === 'cardio') {
+                gruposFiltro = ['Cardio'];
+            } else {
+                gruposFiltro = ['Inferiores', 'Costas', 'Peito', 'Ombros', 'Bíceps', 'Tríceps', 'Abdômen', 'Cardio'];
+            }
+            const gruposValidos = ['Inferiores', 'Costas', 'Peito', 'Ombros', 'Bíceps', 'Tríceps', 'Abdômen', 'Cardio'];
+            const filtroGrupos = gruposValidos.filter(g => gruposFiltro.includes(g));
+            disponiveis = disponiveis.filter(e => filtroGrupos.includes(e.grupo));
+
             let ajusteCardio = false, ajusteVolume = 0;
             const hoje = new Date().toISOString().split('T')[0];
             const refeicoesHoje = refeicoes.filter(r => r.data === hoje);
@@ -1011,13 +1236,15 @@
                 if (diff < -300) { ajusteCardio = true; ajusteVolume = -1; }
                 else if (diff > 300) { ajusteVolume = 1; }
             }
-            const grupos = ['Inferiores', 'Costas', 'Peito', 'Ombros', 'Bíceps', 'Tríceps', 'Abdômen', 'Cardio'];
+
+            const grupos = filtroGrupos;
             const exerciciosPorGrupo = {};
             grupos.forEach(g => { exerciciosPorGrupo[g] = disponiveis.filter(e => e.grupo === g); });
             const selecionados = [];
             const rand = arr => arr[Math.floor(Math.random() * arr.length)];
-            let numExercicios = rapido ? 4 : 6;
-            if (ajusteCardio && !rapido) numExercicios = Math.min(numExercicios + 1, 8);
+            let numExercicios = rapido ? 3 : (grupoSelecionado === 'cardio' ? 3 : (grupoSelecionado === 'superior' || grupoSelecionado === 'inferior' ? 5 : 6));
+            if (ajusteCardio && !rapido && grupoSelecionado !== 'cardio') numExercicios = Math.min(numExercicios + 1, 8);
+
             grupos.forEach(g => {
                 const pool = exerciciosPorGrupo[g] || [];
                 if (pool.length > 0 && selecionados.length < numExercicios) {
@@ -1032,26 +1259,40 @@
                     }
                 }
             });
-            while (selecionados.length < (rapido ? 3 : 5)) {
+
+            while (selecionados.length < (rapido ? 2 : (grupoSelecionado === 'cardio' ? 2 : 3))) {
                 const extra = rand(disponiveis);
                 if (!selecionados.includes(extra)) selecionados.push(extra);
             }
             const finalSelecionados = selecionados.slice(0, numExercicios);
-            const treino = finalSelecionados.map(ex => {
-                let series = rapido ? 2 : 3;
-                let repeticoes = rapido ? 10 : 12;
-                let descanso = rapido ? 30 : 60;
-                if (ajusteVolume === 1) { series += 1; repeticoes = Math.round(repeticoes * 1.1); }
-                else if (ajusteVolume === -1) { series = Math.max(1, series - 1); repeticoes = Math.round(repeticoes * 0.9); }
-                if (ex.categoria === 'Musculação') {
+
+            let treinoExercicios = [];
+            let duracaoTotal = 0;
+
+            finalSelecionados.forEach(ex => {
+                let series = 1;
+                let repeticoes = 0;
+                let descanso = 0;
+                let tempoEstimado = 0;
+
+                if (ex.categoria === 'Aeróbico') {
+                    series = 1;
+                    repeticoes = rapido ? 15 : (ajusteCardio ? 30 : 20);
+                    descanso = 0;
+                    tempoEstimado = repeticoes; // minutos
+                } else {
+                    series = rapido ? 2 : 3;
+                    repeticoes = rapido ? 10 : 12;
+                    descanso = rapido ? 30 : 60;
+                    if (ajusteVolume === 1) { series += 1; repeticoes = Math.round(repeticoes * 1.1); }
+                    else if (ajusteVolume === -1) { series = Math.max(1, series - 1); repeticoes = Math.round(repeticoes * 0.9); }
                     if (d.objetivo === 'ganho') { series = rapido ? 3 : 4; repeticoes = rapido ? 8 : 8; descanso = rapido ? 45 : 90; }
                     else if (d.objetivo === 'perda') { series = rapido ? 2 : 3; repeticoes = rapido ? 12 : 15; descanso = rapido ? 20 : 45; }
-                } else if (ex.categoria === 'Aeróbico') {
-                    series = 1; repeticoes = rapido ? 10 : (ajusteCardio ? 25 : 20); descanso = 0;
+                    tempoEstimado = series * 1.5;
                 }
-                if (d.experiencia === 'avancado' && !rapido) { series += 1; repeticoes = Math.round(repeticoes * 1.2); }
-                if (d.experiencia === 'iniciante' && !rapido) { series = Math.max(1, series - 1); repeticoes = Math.round(repeticoes * 0.8); }
-                if (ultimoTreinoGerado && historicoTreinos.length > 0 && !rapido) {
+                if (d.experiencia === 'avancado' && !rapido && ex.categoria !== 'Aeróbico') { series += 1; repeticoes = Math.round(repeticoes * 1.2); }
+                if (d.experiencia === 'iniciante' && !rapido && ex.categoria !== 'Aeróbico') { series = Math.max(1, series - 1); repeticoes = Math.round(repeticoes * 0.8); }
+                if (ultimoTreinoGerado && historicoTreinos.length > 0 && !rapido && ex.categoria !== 'Aeróbico') {
                     const ultimoRealizado = historicoTreinos[historicoTreinos.length - 1];
                     const mesmoExercicio = ultimoRealizado.exercicios.find(e => e.nome === ex.nome);
                     if (mesmoExercicio) {
@@ -1060,26 +1301,30 @@
                     }
                 }
                 const caloriasPorMinuto = (ex.met * 3.5 * (d.peso || 70)) / 200;
-                return {
+                treinoExercicios.push({
                     nome: ex.nome,
                     met: ex.met,
                     categoria: ex.categoria,
                     grupo: ex.grupo || 'Geral',
                     dica: ex.dica || 'Mantenha a postura correta.',
-                    series,
-                    repeticoes,
-                    descanso,
-                    caloriasPorMinuto,
+                    series: series,
+                    repeticoes: repeticoes,
+                    descanso: descanso,
+                    caloriasPorMinuto: caloriasPorMinuto,
                     equipamento: ex.equipamento || 'livre',
-                    video: ex.video || null
-                };
+                    video: ex.video || null,
+                    tempo: tempoEstimado
+                });
+                duracaoTotal += tempoEstimado;
             });
-            const gastoTotal = treino.reduce((acc, ex) => acc + ex.caloriasPorMinuto * duracaoMin / treino.length, 0);
+
+            const gastoTotal = treinoExercicios.reduce((acc, ex) => acc + ex.caloriasPorMinuto * ex.tempo, 0);
             return {
-                nome: `${rapido ? 'Treino Rápido' : 'Treino ' + d.objetivo} - ${new Date().toLocaleDateString('pt-BR')}`,
-                exercicios: treino,
+                nome: `${grupoSelecionado === 'cardio' ? 'Cardio' : grupoSelecionado.charAt(0).toUpperCase() + grupoSelecionado.slice(1)} - ${new Date().toLocaleDateString('pt-BR')}`,
+                exercicios: treinoExercicios,
                 gastoTotal: Math.round(gastoTotal),
-                duracao: duracaoMin
+                duracao: Math.round(duracaoTotal),
+                grupo: grupoSelecionado
             };
         }
 
@@ -1094,6 +1339,265 @@
             }
         }
 
+        // ===== EXIBIÇÃO DOS TREINOS DA SEMANA ATUAL =====
+        function renderizarTreinosSemana() {
+            const container = document.getElementById('treinosSemanaList');
+            const dias = ['segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado'];
+            const nomes = {
+                segunda: 'Segunda-feira',
+                terca: 'Terça-feira',
+                quarta: 'Quarta-feira',
+                quinta: 'Quinta-feira',
+                sexta: 'Sexta-feira',
+                sabado: 'Sábado'
+            };
+            const semana = getSemanaAtual();
+            let html = '';
+            dias.forEach(dia => {
+                const chave = getChaveTreino(dia, semana);
+                const treino = treinosCiclo[chave] || null;
+                const status = treino ? `✅ ${treino.exercicios.length} exercícios | 🔥 ${treino.gastoTotal} kcal | ⏱️ ${treino.duracao} min` : '❌ Vazio';
+                html += `
+                    <button class="dia-treino-btn" onclick="verTreinoDia('${dia}')">
+                        <span class="dia">${nomes[dia]}</span>
+                        <span class="status">${status}</span>
+                        <span style="font-size:0.8rem; color:var(--accent-1);"><i class="fas fa-chevron-right"></i></span>
+                    </button>
+                `;
+            });
+            container.innerHTML = html;
+            document.getElementById('infoSemana').textContent = getInfoSemana();
+        }
+
+        function verTreinoDia(dia) {
+            const treino = getTreinoDoDia(dia);
+            if (!treino) {
+                mostrarToast('⚠️ Nenhum treino cadastrado para este dia na semana atual.');
+                return;
+            }
+            treinoAtual = treino;
+            abrirTrainerModal(treino, dia);
+        }
+
+        // ===== MODAL DE TREINO =====
+        function abrirTrainerModal(treino, dia = null) {
+            const modal = document.getElementById('trainerModal');
+            const modalBody = document.getElementById('trainerModalBody');
+            const modalTitle = document.getElementById('trainerModalTitle');
+            modalTitle.innerHTML = `<i class="fas fa-dumbbell"></i> ${treino.nome}`;
+            let html = `<p style="color: var(--text-secondary);">⏱️ Duração: ${treino.duracao || 0} min | 🔥 Gasto estimado: <strong>${treino.gastoTotal} kcal</strong></p>`;
+            html += `<div style="margin-top: 12px;">`;
+            treino.exercicios.forEach((ex, idx) => {
+                const tipoTempo = ex.categoria === 'Aeróbico' ? 'min' : 'rep';
+                const substituto = sugerirSubstituicao(ex.nome);
+                const videoLink = ex.video ? `<a href="${ex.video}" target="_blank" class="btn btn-sm btn-outline" style="margin-top:6px; display:inline-flex;"><i class="fas fa-play"></i> Ver Execução</a>` : '';
+                const tempoExibicao = ex.tempo || (ex.categoria === 'Aeróbico' ? ex.repeticoes : ex.series * 1.5);
+                html += `
+                    <div class="treino-item">
+                        <h4>${idx+1}. ${ex.nome}</h4>
+                        <p><strong>Séries:</strong> ${ex.series} | <strong>${tipoTempo === 'min' ? 'Minutos' : 'Repetições'}:</strong> ${tipoTempo === 'min' ? Math.round(tempoExibicao) : ex.repeticoes} | <strong>Descanso:</strong> ${ex.descanso}s</p>
+                        <div style="font-size:0.8rem; color:var(--text-secondary);">🔥 ${ex.caloriasPorMinuto.toFixed(1)} kcal/min | ${ex.grupo} | ${ex.categoria}</div>
+                        <div class="dica">💡 ${ex.dica}</div>
+                        ${substituto ? `<div style="font-size:0.8rem; color:var(--accent-2); margin-top:4px;">🔄 Alternativa: <strong>${substituto}</strong></div>` : ''}
+                        ${videoLink}
+                    </div>
+                `;
+            });
+            html += `</div>`;
+            modalBody.innerHTML = html;
+
+            const modalActions = document.querySelector('#trainerModal .modal-content > div:last-child');
+            let btnEditar = modalActions.querySelector('.btn-editar');
+            if (btnEditar) btnEditar.remove();
+
+            if (dia) {
+                btnEditar = document.createElement('button');
+                btnEditar.className = 'btn btn-sm btn-outline btn-editar';
+                btnEditar.innerHTML = '<i class="fas fa-edit"></i> Editar Treino';
+                btnEditar.onclick = function() {
+                    fecharTrainerModal();
+                    abrirEditorTreino(dia);
+                };
+                const fecharBtn = modalActions.querySelector('.btn-outline:last-child');
+                modalActions.insertBefore(btnEditar, fecharBtn);
+            }
+
+            modal.classList.add('visible');
+        }
+
+        function fecharTrainerModal() {
+            document.getElementById('trainerModal').classList.remove('visible');
+        }
+
+        // ===== EDIÇÃO DE TREINO =====
+        function abrirEditorTreino(dia) {
+            const treino = getTreinoDoDia(dia);
+            if (!treino) { mostrarToast('⚠️ Treino não encontrado.'); return; }
+            const modal = document.getElementById('modalEditarTreino');
+            const conteudo = document.getElementById('editarConteudo');
+            const semana = getSemanaAtual();
+            document.getElementById('editarTitle').innerHTML = `<i class="fas fa-edit"></i> Editar Treino - ${dia.charAt(0).toUpperCase() + dia.slice(1)} (Semana ${semana})`;
+
+            let html = `
+                <p style="color:var(--text-secondary); margin-bottom:12px;">Adicione ou remova exercícios, ajuste séries, repetições e tempo (para cardio).</p>
+                <div id="listaEdicao">
+                    ${treino.exercicios.map((ex, idx) => {
+                        const isCardio = ex.categoria === 'Aeróbico';
+                        return `
+                            <div class="treino-item-edicao ${isCardio ? 'cardio' : ''}">
+                                <select class="exercicio-select" data-idx="${idx}" style="flex:2;">
+                                    ${exerciciosBase.map(e => `<option value="${e.nome}" ${e.nome === ex.nome ? 'selected' : ''}>${e.nome}</option>`).join('')}
+                                </select>
+                                <input type="number" class="series-input" data-idx="${idx}" value="${ex.series}" min="1" max="10" placeholder="Séries">
+                                <input type="number" class="repeticoes-input" data-idx="${idx}" value="${isCardio ? Math.round(ex.tempo || ex.repeticoes) : ex.repeticoes}" min="${isCardio ? 1 : 1}" max="${isCardio ? 120 : 50}" placeholder="${isCardio ? 'Min' : 'Reps'}">
+                                ${isCardio ? `
+                                    <span class="campo-cardio">
+                                        <input type="number" class="distancia-input" data-idx="${idx}" value="${ex.distancia || ''}" step="0.1" min="0" placeholder="Dist (km)">
+                                        <input type="number" class="velocidade-input" data-idx="${idx}" value="${ex.velocidade || ''}" step="0.1" min="0" placeholder="Vel (km/h)">
+                                    </span>
+                                ` : ''}
+                                <button class="btn btn-sm btn-danger" onclick="removerExercicioEdicao(${idx})"><i class="fas fa-times"></i></button>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+                <div style="margin-top:12px; display:flex; gap:8px; flex-wrap:wrap;">
+                    <button class="btn btn-sm btn-primary" onclick="adicionarExercicioEdicao()"><i class="fas fa-plus"></i> Adicionar Exercício</button>
+                </div>
+            `;
+            conteudo.innerHTML = html;
+            modal.classList.add('visible');
+        }
+
+        function adicionarExercicioEdicao() {
+            const lista = document.getElementById('listaEdicao');
+            const idx = lista.children.length;
+            const div = document.createElement('div');
+            div.className = 'treino-item-edicao';
+            div.innerHTML = `
+                <select class="exercicio-select" data-idx="${idx}" style="flex:2;">
+                    ${exerciciosBase.map(e => `<option value="${e.nome}">${e.nome}</option>`).join('')}
+                </select>
+                <input type="number" class="series-input" data-idx="${idx}" value="3" min="1" max="10" placeholder="Séries">
+                <input type="number" class="repeticoes-input" data-idx="${idx}" value="12" min="1" max="50" placeholder="Reps">
+                <span class="campo-cardio" style="display:none;">
+                    <input type="number" class="distancia-input" data-idx="${idx}" step="0.1" min="0" placeholder="Dist (km)">
+                    <input type="number" class="velocidade-input" data-idx="${idx}" step="0.1" min="0" placeholder="Vel (km/h)">
+                </span>
+                <button class="btn btn-sm btn-danger" onclick="removerExercicioEdicao(${idx})"><i class="fas fa-times"></i></button>
+            `;
+            lista.appendChild(div);
+            reindexarEdicao();
+            const select = div.querySelector('.exercicio-select');
+            select.addEventListener('change', function() {
+                const nome = this.value;
+                const base = exerciciosBase.find(e => e.nome === nome);
+                const isCardio = base && base.categoria === 'Aeróbico';
+                const parent = this.closest('.treino-item-edicao');
+                if (isCardio) {
+                    parent.classList.add('cardio');
+                    parent.querySelector('.campo-cardio').style.display = 'inline-block';
+                    parent.querySelector('.repeticoes-input').placeholder = 'Min';
+                    parent.querySelector('.repeticoes-input').max = 120;
+                } else {
+                    parent.classList.remove('cardio');
+                    parent.querySelector('.campo-cardio').style.display = 'none';
+                    parent.querySelector('.repeticoes-input').placeholder = 'Reps';
+                    parent.querySelector('.repeticoes-input').max = 50;
+                }
+            });
+        }
+
+        function removerExercicioEdicao(idx) {
+            const lista = document.getElementById('listaEdicao');
+            const children = lista.children;
+            if (children.length <= 1) { mostrarToast('⚠️ Mantenha pelo menos um exercício.'); return; }
+            for (let i = 0; i < children.length; i++) {
+                if (i === idx) {
+                    lista.removeChild(children[i]);
+                    break;
+                }
+            }
+            reindexarEdicao();
+        }
+
+        function reindexarEdicao() {
+            const lista = document.getElementById('listaEdicao');
+            const children = lista.children;
+            for (let i = 0; i < children.length; i++) {
+                const select = children[i].querySelector('.exercicio-select');
+                const series = children[i].querySelector('.series-input');
+                const repeticoes = children[i].querySelector('.repeticoes-input');
+                const distancia = children[i].querySelector('.distancia-input');
+                const velocidade = children[i].querySelector('.velocidade-input');
+                if (select) select.dataset.idx = i;
+                if (series) series.dataset.idx = i;
+                if (repeticoes) repeticoes.dataset.idx = i;
+                if (distancia) distancia.dataset.idx = i;
+                if (velocidade) velocidade.dataset.idx = i;
+                const btn = children[i].querySelector('.btn-danger');
+                if (btn) btn.onclick = function() { removerExercicioEdicao(i); };
+            }
+        }
+
+        function salvarEdicaoTreino() {
+            const lista = document.getElementById('listaEdicao');
+            const children = lista.children;
+            if (children.length === 0) { mostrarToast('⚠️ Adicione pelo menos um exercício.'); return; }
+            const dia = document.querySelector('#editarTitle').textContent.split(' ')[3]?.toLowerCase() || '';
+            const exercicios = [];
+            for (let i = 0; i < children.length; i++) {
+                const select = children[i].querySelector('.exercicio-select');
+                const series = parseInt(children[i].querySelector('.series-input').value) || 3;
+                let repeticoes = parseInt(children[i].querySelector('.repeticoes-input').value) || 12;
+                const nome = select.value;
+                const base = exerciciosBase.find(e => e.nome === nome);
+                if (!base) { mostrarToast(`⚠️ Exercício "${nome}" não encontrado.`); return; }
+                const peso = usuarioDados?.peso || 70;
+                const isCardio = base.categoria === 'Aeróbico';
+                let tempo = isCardio ? repeticoes : series * 1.5;
+                if (!isCardio) repeticoes = repeticoes;
+                const distancia = parseFloat(children[i].querySelector('.distancia-input')?.value) || 0;
+                const velocidade = parseFloat(children[i].querySelector('.velocidade-input')?.value) || 0;
+                const exObj = {
+                    nome: base.nome,
+                    met: base.met,
+                    categoria: base.categoria,
+                    grupo: base.grupo || 'Geral',
+                    dica: base.dica || 'Mantenha a postura correta.',
+                    series: series,
+                    repeticoes: repeticoes,
+                    descanso: isCardio ? 0 : 60,
+                    caloriasPorMinuto: (base.met * 3.5 * peso) / 200,
+                    video: base.video || null,
+                    equipamento: base.equipamento || 'livre',
+                    tempo: tempo,
+                    distancia: distancia,
+                    velocidade: velocidade
+                };
+                exercicios.push(exObj);
+            }
+            const duracao = exercicios.reduce((acc, ex) => acc + ex.tempo, 0);
+            const gastoTotal = exercicios.reduce((acc, ex) => acc + ex.caloriasPorMinuto * ex.tempo, 0);
+            const treinoAtualizado = {
+                nome: `Treino ${dia.charAt(0).toUpperCase() + dia.slice(1)} - ${new Date().toLocaleDateString('pt-BR')}`,
+                exercicios: exercicios,
+                gastoTotal: Math.round(gastoTotal),
+                duracao: Math.round(duracao),
+                grupo: 'custom'
+            };
+            salvarTreinoNoDia(dia, treinoAtualizado);
+            renderizarTreinosSemana();
+            salvarDados();
+            fecharModalEditar();
+            mostrarToast('✅ Treino atualizado com sucesso!');
+        }
+
+        function fecharModalEditar() {
+            document.getElementById('modalEditarTreino').classList.remove('visible');
+        }
+
+        // ===== FUNÇÕES AUXILIARES =====
         function sugerirSubstituicao(exercicioNome) {
             const lower = exercicioNome.toLowerCase();
             for (const [key, alternativas] of Object.entries(substituicoes)) {
@@ -1111,43 +1615,32 @@
             return null;
         }
 
-        function abrirTrainerModal(treino) {
-            const modal = document.getElementById('trainerModal');
-            document.getElementById('trainerModalTitle').innerHTML = `<i class="fas fa-dumbbell"></i> ${treino.nome}`;
-            let html = `<p style="color: var(--text-secondary);">⏱️ Duração: ${treino.duracao || 30} min | 🔥 Gasto estimado: <strong>${treino.gastoTotal} kcal</strong></p>`;
-            html += `<div style="margin-top: 12px;">`;
-            treino.exercicios.forEach((ex, idx) => {
-                const tipoTempo = ex.categoria === 'Aeróbico' ? 'min' : 'rep';
-                const substituto = sugerirSubstituicao(ex.nome);
-                const videoLink = ex.video ? `<a href="${ex.video}" target="_blank" class="btn btn-sm btn-outline" style="margin-top:6px; display:inline-flex;"><i class="fas fa-play"></i> Ver Execução</a>` : '';
-                html += `
-                    <div class="treino-item">
-                        <h4>${idx+1}. ${ex.nome}</h4>
-                        <p><strong>Séries:</strong> ${ex.series} | <strong>${tipoTempo === 'min' ? 'Minutos' : 'Repetições'}:</strong> ${ex.repeticoes} | <strong>Descanso:</strong> ${ex.descanso}s</p>
-                        <div style="font-size:0.8rem; color:var(--text-secondary);">🔥 ${ex.caloriasPorMinuto.toFixed(1)} kcal/min | ${ex.grupo} | ${ex.categoria}</div>
-                        <div class="dica">💡 ${ex.dica}</div>
-                        ${substituto ? `<div style="font-size:0.8rem; color:var(--accent-2); margin-top:4px;">🔄 Alternativa: <strong>${substituto}</strong></div>` : ''}
-                        ${videoLink}
-                    </div>
-                `;
-            });
-            html += `</div>`;
-            document.getElementById('trainerModalBody').innerHTML = html;
-            modal.classList.add('visible');
-        }
-
-        function fecharTrainerModal() {
-            document.getElementById('trainerModal').classList.remove('visible');
+        function salvarTreinoAtual() {
+            if (!treinoAtual) { mostrarToast('⚠️ Nenhum treino para salvar.'); return; }
+            const existente = treinosSalvos.find(t => t.nome === treinoAtual.nome);
+            if (existente) {
+                if (!confirm(`Já existe um treino com o nome "${treinoAtual.nome}". Deseja substituir?`)) return;
+                Object.assign(existente, treinoAtual);
+            } else {
+                treinosSalvos.push({ ...treinoAtual });
+            }
+            renderizarTreinosSalvos();
+            salvarDados();
+            mostrarToast(`💾 Treino "${treinoAtual.nome}" salvo!`);
+            fecharTrainerModal();
         }
 
         function compartilharTreino() {
             if (!treinoAtual) { mostrarToast('⚠️ Nenhum treino para compartilhar.'); return; }
-            let texto = `⚡ AION - ${treinoAtual.nome}\n⏱️ ${treinoAtual.duracao || 30} min | 🔥 ${treinoAtual.gastoTotal} kcal\n\n`;
+            let texto = `⚡ AION - ${treinoAtual.nome}\n⏱️ ${treinoAtual.duracao || 0} min | 🔥 ${treinoAtual.gastoTotal} kcal\n\n`;
             treinoAtual.exercicios.forEach((ex, i) => {
                 const tipo = ex.categoria === 'Aeróbico' ? 'min' : 'rep';
-                texto += `${i+1}. ${ex.nome} - ${ex.series}x${ex.repeticoes} ${tipo} (descanso ${ex.descanso}s)\n`;
+                const tempoExibicao = ex.tempo || (ex.categoria === 'Aeróbico' ? ex.repeticoes : ex.series * 1.5);
+                texto += `${i+1}. ${ex.nome} - ${ex.series}x${tipo === 'min' ? Math.round(tempoExibicao) : ex.repeticoes} ${tipo} (descanso ${ex.descanso}s)\n`;
                 texto += `   💡 ${ex.dica}\n`;
                 if (ex.video) texto += `   🎥 Vídeo: ${ex.video}\n`;
+                if (ex.distancia) texto += `   📏 Distância: ${ex.distancia} km\n`;
+                if (ex.velocidade) texto += `   🏃 Velocidade: ${ex.velocidade} km/h\n`;
             });
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(texto).then(() => {
@@ -1174,63 +1667,6 @@
             document.body.removeChild(el);
         }
 
-        function salvarTreinoAtual() {
-            if (!treinoAtual) { mostrarToast('⚠️ Nenhum treino para salvar.'); return; }
-            const existente = treinosSalvos.find(t => t.nome === treinoAtual.nome);
-            if (existente) {
-                if (!confirm(`Já existe um treino com o nome "${treinoAtual.nome}". Deseja substituir?`)) return;
-                Object.assign(existente, treinoAtual);
-            } else {
-                treinosSalvos.push({ ...treinoAtual });
-            }
-            renderizarTreinosSalvos();
-            salvarDados();
-            mostrarToast(`💾 Treino "${treinoAtual.nome}" salvo!`);
-            fecharTrainerModal();
-        }
-
-        function renderizarTreinosSalvos() {
-            const container = document.getElementById('treinosSalvosList');
-            if (treinosSalvos.length === 0) {
-                container.innerHTML = '<p class="text-muted">Nenhum treino salvo ainda.</p>';
-                return;
-            }
-            let html = '';
-            treinosSalvos.forEach((t, idx) => {
-                const desc = t.exercicios.map(e => e.nome).join(', ');
-                html += `
-                    <div style="background:var(--bg-card); border:1px solid var(--border-glass); border-radius:12px; padding:10px 14px; display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-                        <span style="font-weight:600; color:var(--text-primary);">${t.nome}</span>
-                        <span style="font-size:0.75rem; color:var(--text-secondary);">${desc} | 🔥 ${t.gastoTotal} kcal</span>
-                        <div style="display:flex; gap:4px; margin-left:auto;">
-                            <button class="btn btn-sm btn-trainer" onclick="verTreinoSalvo(${idx})"><i class="fas fa-eye"></i></button>
-                            <button class="btn btn-sm btn-danger" onclick="removerTreinoSalvo(${idx})"><i class="fas fa-times"></i></button>
-                        </div>
-                    </div>
-                `;
-            });
-            container.innerHTML = html;
-        }
-
-        function verTreinoSalvo(idx) {
-            const treino = treinosSalvos[idx];
-            if (treino) abrirTrainerModal(treino);
-        }
-
-        function removerTreinoSalvo(idx) {
-            if (!confirm(`Remover o treino "${treinosSalvos[idx].nome}"?`)) return;
-            treinosSalvos.splice(idx, 1);
-            renderizarTreinosSalvos();
-            salvarDados();
-            mostrarToast('🗑️ Treino removido.');
-        }
-
-        function mostrarTreinosSalvos() {
-            const container = document.getElementById('treinosSalvosContainer');
-            container.style.display = container.style.display === 'block' ? 'none' : 'block';
-            renderizarTreinosSalvos();
-        }
-
         function registrarTreinoRealizado() {
             if (!treinoAtual) { mostrarToast('⚠️ Nenhum treino para registrar.'); return; }
             const exerciciosComCarga = treinoAtual.exercicios.map(ex => {
@@ -1242,7 +1678,7 @@
                 nome: treinoAtual.nome,
                 exercicios: exerciciosComCarga,
                 gastoTotal: treinoAtual.gastoTotal,
-                duracao: treinoAtual.duracao || 30
+                duracao: treinoAtual.duracao || 0
             };
             historicoTreinos.push(registro);
             renderizarHistoricoTreinos();
@@ -1285,6 +1721,51 @@
             historicoTreinos.splice(idx, 1);
             renderizarHistoricoTreinos();
             salvarDados();
+        }
+
+        function renderizarTreinosSalvos() {
+            const container = document.getElementById('treinosSalvosList');
+            if (treinosSalvos.length === 0) {
+                container.innerHTML = '<p class="text-muted">Nenhum treino salvo ainda.</p>';
+                return;
+            }
+            let html = '';
+            treinosSalvos.forEach((t, idx) => {
+                const desc = t.exercicios.map(e => e.nome).join(', ');
+                html += `
+                    <div style="background:var(--bg-card); border:1px solid var(--border-glass); border-radius:12px; padding:10px 14px; display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                        <span style="font-weight:600; color:var(--text-primary);">${t.nome}</span>
+                        <span style="font-size:0.75rem; color:var(--text-secondary);">${desc} | 🔥 ${t.gastoTotal} kcal</span>
+                        <div style="display:flex; gap:4px; margin-left:auto;">
+                            <button class="btn btn-sm btn-trainer" onclick="verTreinoSalvo(${idx})"><i class="fas fa-eye"></i></button>
+                            <button class="btn btn-sm btn-danger" onclick="removerTreinoSalvo(${idx})"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function verTreinoSalvo(idx) {
+            const treino = treinosSalvos[idx];
+            if (treino) {
+                treinoAtual = treino;
+                abrirTrainerModal(treino);
+            }
+        }
+
+        function removerTreinoSalvo(idx) {
+            if (!confirm(`Remover o treino "${treinosSalvos[idx].nome}"?`)) return;
+            treinosSalvos.splice(idx, 1);
+            renderizarTreinosSalvos();
+            salvarDados();
+            mostrarToast('🗑️ Treino removido.');
+        }
+
+        function mostrarTreinosSalvos() {
+            const container = document.getElementById('treinosSalvosContainer');
+            container.style.display = container.style.display === 'block' ? 'none' : 'block';
+            renderizarTreinosSalvos();
         }
 
         function calcularGastoExercicio() {
@@ -1532,12 +2013,12 @@
                 const futuro = n + 6;
                 previsao = slope * futuro + intercept;
             }
-            const treinosSemana = historicoTreinos.filter(t => {
+            const treinosSemanaReg = historicoTreinos.filter(t => {
                 const dataTreino = new Date(t.data + 'T00:00:00');
                 return dataTreino >= new Date(hoje.getFullYear(), hoje.getMonth(), hoje.getDate() - 7);
             });
-            const totalSeries = treinosSemana.reduce((s, t) => s + t.exercicios.reduce((ss, e) => ss + e.series, 0), 0);
-            const totalCalorias = treinosSemana.reduce((s, t) => s + (t.gastoTotal || 0), 0);
+            const totalSeries = treinosSemanaReg.reduce((s, t) => s + t.exercicios.reduce((ss, e) => ss + e.series, 0), 0);
+            const totalCalorias = treinosSemanaReg.reduce((s, t) => s + (t.gastoTotal || 0), 0);
             let recomendacao = 'Mantenha o ritmo!';
             if (variacao < -0.5) recomendacao = 'Ótimo progresso na perda de peso! Continue assim.';
             else if (variacao > 0.5) recomendacao = 'Houve um ganho de peso. Reavalie sua dieta e atividade física.';
@@ -1561,7 +2042,7 @@
                     </div>
                     ${previsao !== null ? `<div class="report-text"><strong>🔮 Previsão para daqui a 7 dias:</strong> ${previsao.toFixed(1)} kg (${(previsao - ultimo.peso) > 0 ? '+' : ''}${(previsao - ultimo.peso).toFixed(1)} kg)</div>` : ''}
                     <div class="report-text"><strong>📝 Análise:</strong> ${recomendacao}</div>
-                    <div class="report-text"><strong>🏋️ Volume da semana:</strong> ${treinosSemana.length} treinos realizados, ${totalSeries} séries, ${totalCalorias} kcal gastas.</div>
+                    <div class="report-text"><strong>🏋️ Volume da semana:</strong> ${treinosSemanaReg.length} treinos realizados, ${totalSeries} séries, ${totalCalorias} kcal gastas.</div>
                     <div class="report-chart"><canvas id="weeklyChart"></canvas></div>
                     <div class="report-actions" style="display:flex; gap:8px; margin-top:8px;">
                         <button class="btn btn-sm btn-outline" onclick="exportarRelatorioSemanal()"><i class="fas fa-file-export"></i> Exportar TXT</button>
@@ -1710,17 +2191,20 @@
             if (!exercicioBase) { mostrarToast('⚠️ Exercício não encontrado.'); return; }
             
             const peso = usuarioDados?.peso || 70;
+            const isCardio = exercicioBase.categoria === 'Aeróbico';
+            const tempo = isCardio ? repeticoes : series * 1.5;
             const ex = {
                 nome: exercicioBase.nome,
                 met: exercicioBase.met,
                 categoria: exercicioBase.categoria,
                 grupo: exercicioBase.grupo || 'Geral',
                 dica: exercicioBase.dica || 'Mantenha a postura correta.',
-                series: series,
+                series: isCardio ? 1 : series,
                 repeticoes: repeticoes,
-                descanso: 60,
+                descanso: isCardio ? 0 : 60,
                 caloriasPorMinuto: (exercicioBase.met * 3.5 * peso) / 200,
-                video: exercicioBase.video || null
+                video: exercicioBase.video || null,
+                tempo: tempo
             };
             
             treinoManual.push(ex);
@@ -1742,11 +2226,12 @@
             let html = '';
             treinoManual.forEach((ex, idx) => {
                 const videoLink = ex.video ? `<a href="${ex.video}" target="_blank" class="btn btn-sm btn-outline" style="margin-left:8px;"><i class="fas fa-play"></i></a>` : '';
+                const tipo = ex.categoria === 'Aeróbico' ? 'min' : 'rep';
                 html += `
                     <div class="treino-item" style="background:var(--bg-card); border:1px solid var(--border-glass); border-radius:12px; padding:12px; margin-bottom:8px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
                         <div>
                             <strong>${ex.nome}</strong>
-                            <span style="font-size:0.8rem; color:var(--text-secondary);"> ${ex.series}x${ex.repeticoes} | ${ex.grupo}</span>
+                            <span style="font-size:0.8rem; color:var(--text-secondary);"> ${ex.series}x${ex.repeticoes} ${tipo} | ${ex.grupo}</span>
                             ${videoLink}
                         </div>
                         <button class="btn btn-sm btn-danger" onclick="removerExercicioManual(${idx})"><i class="fas fa-times"></i></button>
@@ -1776,14 +2261,14 @@
             const nome = prompt('Nome do treino:', `Meu Treino - ${new Date().toLocaleDateString('pt-BR')}`);
             if (!nome) return;
             
-            const duracao = treinoManual.length * 3;
-            const gastoTotal = treinoManual.reduce((acc, ex) => acc + ex.caloriasPorMinuto * (duracao / treinoManual.length), 0);
+            const duracao = treinoManual.reduce((acc, ex) => acc + ex.tempo, 0);
+            const gastoTotal = treinoManual.reduce((acc, ex) => acc + ex.caloriasPorMinuto * ex.tempo, 0);
             
             const treino = {
                 nome: nome,
                 exercicios: treinoManual.map(ex => ({ ...ex })),
                 gastoTotal: Math.round(gastoTotal),
-                duracao: duracao
+                duracao: Math.round(duracao)
             };
             
             const existente = treinosSalvos.find(t => t.nome === nome);
@@ -1807,8 +2292,8 @@
             container.style.display = 'block';
             
             const peso = usuarioDados.peso;
-            const duracao = treinoManual.length * 3;
-            const gastoTotal = treinoManual.reduce((acc, ex) => acc + ex.caloriasPorMinuto * (duracao / treinoManual.length), 0);
+            const duracao = treinoManual.reduce((acc, ex) => acc + ex.tempo, 0);
+            const gastoTotal = treinoManual.reduce((acc, ex) => acc + ex.caloriasPorMinuto * ex.tempo, 0);
             
             const grupos = {};
             treinoManual.forEach(ex => {
@@ -1913,17 +2398,20 @@
             lista.forEach(item => {
                 const base = exerciciosBase.find(e => e.nome === item.nome);
                 if (base) {
+                    const isCardio = base.categoria === 'Aeróbico';
+                    const tempo = isCardio ? item.repeticoes : item.series * 1.5;
                     treinoManual.push({
                         nome: base.nome,
                         met: base.met,
                         categoria: base.categoria,
                         grupo: base.grupo || 'Geral',
                         dica: base.dica || 'Mantenha a postura correta.',
-                        series: item.series,
+                        series: isCardio ? 1 : item.series,
                         repeticoes: item.repeticoes,
-                        descanso: 60,
+                        descanso: isCardio ? 0 : 60,
                         caloriasPorMinuto: (base.met * 3.5 * peso) / 200,
-                        video: base.video || null
+                        video: base.video || null,
+                        tempo: tempo
                     });
                 }
             });
@@ -1931,6 +2419,265 @@
             renderizarTreinoManual();
             document.getElementById('avaliacaoManualResultado').style.display = 'none';
             mostrarToast(`🏋️ Treino Full Body ${nivel.charAt(0).toUpperCase() + nivel.slice(1)} carregado!`);
+        }
+
+        // ===== REGISTRAR TREINO =====
+        function popularSelectRegistro() {
+            const select = document.getElementById('regExercicio');
+            if (!select) return;
+            select.innerHTML = '<option value="">Selecione...</option>';
+            exerciciosBase.forEach(ex => {
+                const opt = document.createElement('option');
+                opt.value = ex.nome;
+                opt.textContent = `${ex.nome} (${ex.grupo})`;
+                select.appendChild(opt);
+            });
+        }
+
+        function atualizarCamposDinamicos() {
+            const tipo = document.getElementById('regTipo').value;
+            const camposMusculacao = document.getElementById('camposMusculacao');
+            const camposCardio = document.getElementById('camposCardio');
+            if (tipo === 'musculacao') {
+                camposMusculacao.style.display = 'flex';
+                camposCardio.style.display = 'none';
+            } else {
+                camposMusculacao.style.display = 'none';
+                camposCardio.style.display = 'flex';
+            }
+        }
+
+        function adicionarRegistroExercicio() {
+            const exercicio = document.getElementById('regExercicio').value;
+            const data = document.getElementById('regData').value;
+            const tipo = document.getElementById('regTipo').value;
+            const intensidade = document.getElementById('regIntensidade').value;
+            
+            if (!exercicio) { mostrarToast('⚠️ Selecione um exercício.'); return; }
+            if (!data) { mostrarToast('⚠️ Selecione uma data.'); return; }
+            
+            const base = exerciciosBase.find(e => e.nome === exercicio);
+            if (!base) { mostrarToast('⚠️ Exercício não encontrado.'); return; }
+            
+            let registro = {
+                data: data,
+                exercicio: exercicio,
+                tipo: tipo,
+                intensidade: intensidade,
+                met: base.met,
+                calorias: 0
+            };
+            
+            if (tipo === 'musculacao') {
+                const series = parseInt(document.getElementById('regSeries').value) || 3;
+                const repeticoes = parseInt(document.getElementById('regRepeticoes').value) || 12;
+                const carga = parseFloat(document.getElementById('regCarga').value) || 0;
+                registro.series = series;
+                registro.repeticoes = repeticoes;
+                registro.carga = carga;
+                registro.tempo = series * 1.5;
+            } else {
+                const tempo = parseInt(document.getElementById('regTempo').value) || 0;
+                const distancia = parseFloat(document.getElementById('regDistancia').value) || 0;
+                const velocidade = parseFloat(document.getElementById('regVelocidade').value) || 0;
+                const passos = parseInt(document.getElementById('regPassos').value) || 0;
+                const inclinacao = parseInt(document.getElementById('regInclinacao').value) || 0;
+                registro.tempo = tempo;
+                registro.distancia = distancia;
+                registro.velocidade = velocidade;
+                registro.passos = passos;
+                registro.inclinacao = inclinacao;
+            }
+            
+            let met = base.met;
+            if (intensidade === 'leve') met = met * 0.8;
+            else if (intensidade === 'intensa') met = met * 1.3;
+            registro.met = met;
+            
+            registrosTreino.push(registro);
+            renderizarRegistrosHoje();
+            salvarDados();
+            
+            document.getElementById('regExercicio').value = '';
+            if (tipo === 'musculacao') {
+                document.getElementById('regSeries').value = '3';
+                document.getElementById('regRepeticoes').value = '12';
+                document.getElementById('regCarga').value = '';
+            } else {
+                document.getElementById('regTempo').value = '';
+                document.getElementById('regDistancia').value = '';
+                document.getElementById('regVelocidade').value = '';
+                document.getElementById('regPassos').value = '';
+                document.getElementById('regInclinacao').value = '';
+            }
+            
+            mostrarToast('✅ Exercício registrado!');
+            document.getElementById('resultadoAnalise').style.display = 'none';
+        }
+
+        function renderizarRegistrosHoje() {
+            const container = document.getElementById('registrosHojeList');
+            const hoje = new Date().toISOString().split('T')[0];
+            const registrosHoje = registrosTreino.filter(r => r.data === hoje);
+            
+            if (registrosHoje.length === 0) {
+                container.innerHTML = '<p class="text-muted">Nenhum registro adicionado hoje.</p>';
+                return;
+            }
+            
+            let html = '';
+            registrosHoje.forEach((r, idx) => {
+                const globalIdx = registrosTreino.indexOf(r);
+                let detalhes = '';
+                if (r.tipo === 'musculacao') {
+                    detalhes = `${r.series}x${r.repeticoes}${r.carga ? ` (${r.carga}kg)` : ''}`;
+                } else {
+                    detalhes = `${r.tempo} min`;
+                    if (r.distancia) detalhes += `, ${r.distancia} km`;
+                    if (r.velocidade) detalhes += `, ${r.velocidade} km/h`;
+                    if (r.passos) detalhes += `, ${r.passos} passos`;
+                    if (r.inclinacao) detalhes += `, ${r.inclinacao}% inclinação`;
+                }
+                const calorias = r.calorias ? `${Math.round(r.calorias)} kcal` : '⏳ pendente';
+                html += `
+                    <div class="registro-item">
+                        <div class="info">
+                            <span class="nome">${r.exercicio}</span>
+                            <div class="detalhes">${detalhes} | ${r.tipo} | ${r.intensidade}</div>
+                        </div>
+                        <div class="calorias">${calorias}</div>
+                        <button class="delete-btn" onclick="removerRegistro(${globalIdx})"><i class="fas fa-times"></i></button>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function removerRegistro(idx) {
+            if (!confirm('Remover este registro?')) return;
+            registrosTreino.splice(idx, 1);
+            renderizarRegistrosHoje();
+            salvarDados();
+            document.getElementById('resultadoAnalise').style.display = 'none';
+        }
+
+        function limparRegistrosHoje() {
+            const hoje = new Date().toISOString().split('T')[0];
+            if (!confirm(`Limpar todos os registros de hoje (${hoje})?`)) return;
+            registrosTreino = registrosTreino.filter(r => r.data !== hoje);
+            renderizarRegistrosHoje();
+            salvarDados();
+            document.getElementById('resultadoAnalise').style.display = 'none';
+            mostrarToast('🗑️ Registros de hoje removidos.');
+        }
+
+        function analisarRegistros() {
+            const hoje = new Date().toISOString().split('T')[0];
+            const registrosHoje = registrosTreino.filter(r => r.data === hoje);
+            if (registrosHoje.length === 0) { mostrarToast('⚠️ Nenhum registro para analisar.'); return; }
+            if (!usuarioDados) { mostrarToast('⚠️ Preencha seu perfil primeiro.'); return; }
+            
+            const peso = usuarioDados.peso;
+            let totalCalorias = 0;
+            let detalhes = [];
+            
+            registrosHoje.forEach(r => {
+                let calorias = 0;
+                let met = r.met || 5;
+                let tempo = r.tempo || 1;
+                
+                if (r.tipo === 'musculacao') {
+                    const series = r.series || 3;
+                    tempo = series * 1.5;
+                    calorias = (met * 3.5 * peso / 200) * tempo;
+                } else {
+                    tempo = r.tempo || 1;
+                    calorias = (met * 3.5 * peso / 200) * tempo;
+                }
+                
+                r.calorias = calorias;
+                totalCalorias += calorias;
+                detalhes.push({
+                    exercicio: r.exercicio,
+                    calorias: calorias,
+                    tempo: tempo,
+                    met: met
+                });
+            });
+            
+            salvarDados();
+            
+            const container = document.getElementById('resultadoAnalise');
+            const conteudo = document.getElementById('conteudoAnalise');
+            container.style.display = 'block';
+            
+            let html = `
+                <div style="margin-bottom:12px;">
+                    <p><span class="total">${Math.round(totalCalorias)} kcal</span> gastas no total</p>
+                    <p style="font-size:0.85rem; color:var(--text-secondary);">${registrosHoje.length} exercícios registrados</p>
+                </div>
+                <div style="margin-bottom:12px;">
+                    <p><strong>📋 Detalhamento:</strong></p>
+                    <ul style="list-style:none; padding:0;">
+                        ${detalhes.map(d => `<li style="padding:4px 0; border-bottom:1px solid var(--border-glass); display:flex; justify-content:space-between;">
+                            <span>${d.exercicio} (${d.tempo} min)</span>
+                            <span>${Math.round(d.calorias)} kcal</span>
+                        </li>`).join('')}
+                    </ul>
+                </div>
+                <div>
+                    <p><strong>💡 Recomendações da IA:</strong></p>
+                    <ul style="list-style:none; padding:0;">
+                        ${totalCalorias < 150 ? '<li>🔥 Gasto calórico baixo. Para aumentar, considere treinos mais longos ou intensos.</li>' : ''}
+                        ${totalCalorias > 500 ? '<li>💪 Ótimo gasto calórico! Lembre-se de se hidratar bem.</li>' : ''}
+                        ${detalhes.some(d => d.met > 7) ? '<li>⚡ Você fez exercícios de alta intensidade, que são ótimos para condicionamento.</li>' : ''}
+                        ${registrosHoje.some(r => r.tipo === 'musculacao' && r.series > 4) ? '<li>🏋️ Alto volume de musculação, certifique-se de descansar adequadamente.</li>' : ''}
+                        ${registrosHoje.some(r => r.tipo !== 'musculacao' && r.tempo > 30) ? '<li>🏃 Ótimo trabalho cardiovascular! Mantenha o ritmo.</li>' : ''}
+                    </ul>
+                </div>
+            `;
+            
+            conteudo.innerHTML = html;
+            renderizarRegistrosHoje();
+            mostrarToast('✅ Análise concluída!');
+        }
+
+        function mostrarHistoricoData() {
+            const data = document.getElementById('histData').value;
+            const container = document.getElementById('historicoRegistrosList');
+            if (!data) {
+                container.innerHTML = '<p class="text-muted">Selecione uma data para ver os registros.</p>';
+                return;
+            }
+            const registros = registrosTreino.filter(r => r.data === data);
+            if (registros.length === 0) {
+                container.innerHTML = '<p class="text-muted">Nenhum registro nesta data.</p>';
+                return;
+            }
+            let html = '';
+            registros.forEach(r => {
+                let detalhes = '';
+                if (r.tipo === 'musculacao') {
+                    detalhes = `${r.series}x${r.repeticoes}${r.carga ? ` (${r.carga}kg)` : ''}`;
+                } else {
+                    detalhes = `${r.tempo} min`;
+                    if (r.distancia) detalhes += `, ${r.distancia} km`;
+                    if (r.velocidade) detalhes += `, ${r.velocidade} km/h`;
+                    if (r.passos) detalhes += `, ${r.passos} passos`;
+                    if (r.inclinacao) detalhes += `, ${r.inclinacao}% inclinação`;
+                }
+                const calorias = r.calorias ? `${Math.round(r.calorias)} kcal` : '⏳ não calculado';
+                html += `
+                    <div class="registro-item">
+                        <div class="info">
+                            <span class="nome">${r.exercicio}</span>
+                            <div class="detalhes">${detalhes} | ${r.tipo}</div>
+                        </div>
+                        <div class="calorias">${calorias}</div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
         }
 
         // ===== CHAT IA =====
@@ -1973,13 +2720,13 @@
             }
             if (p.includes('treino') || p.includes('exercício') || p.includes('exercicio')) {
                 if (temDados) {
-                    return `💪 Com base nos seus dados (${usuarioDados.objetivo}, ${usuarioDados.peso}kg), sugiro um treino com foco em ${usuarioDados.objetivo === 'perda' ? 'cardio e resistência' : usuarioDados.objetivo === 'ganho' ? 'hipertrofia' : 'manutenção'}.\n\nClique em "Gerar Novo" para ver uma sugestão completa com vídeos demonstrativos.`;
+                    return `💪 Com base nos seus dados (${usuarioDados.objetivo}, ${usuarioDados.peso}kg), sugiro um treino com foco em ${usuarioDados.objetivo === 'perda' ? 'cardio e resistência' : usuarioDados.objetivo === 'ganho' ? 'hipertrofia' : 'manutenção'}.\n\nClique em "Gerar Novo" e escolha entre Superior, Inferior, Fullbody ou Cardio.`;
                 } else {
                     return `💪 Para recomendações personalizadas, preencha seu perfil. Enquanto isso, posso sugerir um treino genérico:\n\n🏋️ Leg Press: 3x12\n🏋️ Cadeira Extensora: 3x15\n🏋️ Puxador Frontal: 3x10\n🏋️ Supino Inclinado: 3x12\n🏋️ Rosca Direta: 3x12\n🏃 Esteira: 20 min\n\nEsse treino ajuda a queimar cerca de 200-250 kcal em 30 min.`;
                 }
             }
             if (p.includes('gasto') || p.includes('calorias') || p.includes('queimar')) {
-                return `🔥 Para calcular o gasto calórico, use a função "Gasto" na aba Treinos. \n\n💡 Exemplo: uma caminhada moderada (MET 4.5) queima cerca de 4.5 * 3.5 * seu peso / 200 kcal por minuto. Para 70kg, isso dá ~5.5 kcal/min.`;
+                return `🔥 Para calcular o gasto calórico, use a função "Gasto" na aba Treinos ou registre seus exercícios na aba "Registrar" e peça para a IA analisar.\n\n💡 Exemplo: uma caminhada moderada (MET 4.5) queima cerca de 4.5 * 3.5 * seu peso / 200 kcal por minuto. Para 70kg, isso dá ~5.5 kcal/min.`;
             }
             if (p.includes('execução') || p.includes('como fazer') || p.includes('técnica') || p.includes('dica')) {
                 return `📐 Dicas de execução para máquinas comuns:\n• Leg Press: mantenha a lombar apoiada, não estenda totalmente os joelhos.\n• Cadeira Extensora: controle a fase excêntrica, não use impulso.\n• Puxador Frontal: puxe até a linha do peito, cotovelos para baixo.\n• Supino: mantenha os pés no chão, ombros estáveis.\n• Rosca Direta: cotovelos fixos, não balance o corpo.\n\nPrecisa de mais detalhes sobre alguma máquina específica?`;
@@ -1999,7 +2746,13 @@
             if (p.includes('substituição') || p.includes('alternativa') || p.includes('substituir')) {
                 return `🔄 Para sugerir uma substituição, mencione o nome do exercício. Ex: "substituir leg press".`;
             }
-            return `⚡ Sou o AION, seu assistente inteligente. Posso ajudar com:\n• Sugestões de treino personalizado com vídeos\n• Cálculo de gasto calórico\n• Dicas de execução de exercícios\n• Prevenção de lesões\n• Hipertrofia e emagrecimento\n• Substituição de exercícios\n• Nutrição e metas calóricas\n\nO que você gostaria de saber?`;
+            if (p.includes('registro') || p.includes('registrar')) {
+                return `📋 Use a aba "Registrar" para adicionar os exercícios que você realizou hoje. Escolha o exercício, o tipo (musculação, esteira, escada, etc.), preencha os detalhes e clique em "Adicionar". Depois, clique em "Analisar e Calcular Gasto" para ver o total de calorias gastas e recomendações personalizadas.`;
+            }
+            if (p.includes('semana') || p.includes('ciclo')) {
+                return `📅 O AION organiza seus treinos em um ciclo de 2 semanas. Cada dia da semana (Segunda a Sábado) pode ter um treino diferente para cada semana. A semana atual é determinada automaticamente pela data de início. Você pode gerar ou editar treinos para qualquer dia, e eles serão salvos na semana correspondente.`;
+            }
+            return `⚡ Sou o AION, seu assistente inteligente. Posso ajudar com:\n• Sugestões de treino personalizado (Superior, Inferior, Fullbody, Cardio)\n• Cálculo de gasto calórico\n• Dicas de execução de exercícios\n• Prevenção de lesões\n• Hipertrofia e emagrecimento\n• Substituição de exercícios\n• Nutrição e metas calóricas\n• Registro de treinos e análise de gasto calórico\n• Ciclo de 2 semanas de treinos\n\nO que você gostaria de saber?`;
         }
 
         function acaoRapida(tipo) {
@@ -2007,7 +2760,7 @@
             if (tipo === 'treino') {
                 input.value = 'Gerar treino';
                 enviarMensagem();
-                setTimeout(() => gerarTreinoPersonalizado(), 500);
+                setTimeout(() => abrirModalEscolhaTreino(), 500);
             } else if (tipo === 'gasto') {
                 input.value = 'Calcular gasto calórico';
                 enviarMensagem();
@@ -2118,6 +2871,7 @@
             carregarNotificacoes();
             const hoje = new Date().toISOString().split('T')[0];
             document.getElementById('pesoData').value = hoje;
+            document.getElementById('regData').value = hoje;
             ['nome','sexo','idade','peso','altura','atividade','objetivo','experiencia','restricoes'].forEach(id => {
                 const el = document.getElementById(id);
                 if (el) { el.addEventListener('change', salvarComDebounce); el.addEventListener('input', salvarComDebounce); }
@@ -2133,11 +2887,15 @@
             });
             document.getElementById('filtroExerciciosModal').addEventListener('input', filtrarExerciciosCatalogo);
             popularSelectExercicios();
+            popularSelectRegistro();
+            atualizarCamposDinamicos();
+            renderizarTreinosSemana();
         });
 
-        console.log('⚡ AION - Design Futurista / IA com CRIAÇÃO DE TREINO e FULL BODY aplicado com sucesso!');
-        console.log('✅ Todas as funcionalidades: Perfil, Treinos, Progresso, Nutrição, Criar Treino, Chat IA.');
-        console.log('✅ Modelos Full Body para Iniciante, Intermediário e Avançado.');
+        console.log('⚡ AION - Ciclo de 2 semanas com sábado implementado!');
+        console.log('✅ Dias: Segunda a Sábado.');
+        console.log('✅ Semana 1 e Semana 2 alternam automaticamente.');
+        console.log('✅ Data de início do ciclo salva no localStorage.');
     </script>
 </body>
 </html>
